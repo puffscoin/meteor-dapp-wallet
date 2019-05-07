@@ -540,7 +540,7 @@ observeTransactions = function() {
           !newDocument.exchangeRates.brl)
       ) {
         var url =
-          'https://min-api.cryptocompare.com/data/pricehistorical?fsym=ETH&tsyms=BTC,USD,EUR,GBP,BRL&ts=' +
+          'https://min-api.cryptocompare.com/data/pricehistorical?fsym=PUFFS&tsyms=BTC,USD,EUR,GBP,BRL&ts=' +
           newDocument.timestamp;
 
         if (typeof mist !== 'undefined')
