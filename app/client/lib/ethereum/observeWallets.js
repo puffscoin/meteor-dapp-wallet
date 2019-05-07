@@ -571,7 +571,7 @@ var setupContractSubscription = function(newDocument, checkFromCreationBlock) {
               amount: EthTools.formatBalance(
                 log.returnValues.value,
                 '0,0.00[000000] unit',
-                'ether'
+                'puffs'
               )
             },
             function() {
@@ -627,7 +627,7 @@ var setupContractSubscription = function(newDocument, checkFromCreationBlock) {
               amount: EthTools.formatBalance(
                 log.returnValues.value,
                 '0,0.00[000000] unit',
-                'ether'
+                'puffs'
               )
             },
             function() {
@@ -709,7 +709,7 @@ var setupContractSubscription = function(newDocument, checkFromCreationBlock) {
                   amount: EthTools.formatBalance(
                     log.returnValues.value,
                     '0,0.00[000000] unit',
-                    'ether'
+                    'puffs'
                   )
                 },
                 function() {
