@@ -69,7 +69,7 @@ updateBalances = function() {
     web3.eth
       .getTransactionReceipt(wallet.transactionHash)
       .then(function(receipt) {
-        if (receipt && receipt.contractAddress !== null) {
+        if (receipt.contractAddress !== null) {
           // Updates the wallet
           var r = Wallets.update(wallet._id, {
             $set: {
