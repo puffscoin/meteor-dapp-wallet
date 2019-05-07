@@ -18,8 +18,8 @@ The available units
 */
 selectableUnits = [
   {
-    text: 'ETHER',
-    value: 'ether'
+    text: 'PUFFS',
+    value: 'puffs'
   },
   {
     text: 'FINNEY', //(µΞ)
