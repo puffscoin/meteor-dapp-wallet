@@ -1,11 +1,11 @@
-# Ethereum Wallet Ðapp
+# PUFFScoin dApp Wallet
 
-The Ethereum wallet.
+The PUFFScoin wallet.
 
-[![Build Status](https://travis-ci.org/ethereum/meteor-dapp-wallet.svg?branch=master)](https://travis-ci.org/ethereum/meteor-dapp-wallet)
+[![Build Status](https://travis-ci.org/puffscoin/meteor-dapp-wallet.svg?branch=master)](https://travis-ci.org/puffscoin/meteor-dapp-wallet)
 
-**PLEASE NOTE:** This wallet is not yet officially released,
-and can contain severe bugs! Please use at your own risk.
+**PLEASE NOTE:** This wallet is under development,
+and may contain bugs! Please use at your own risk.
 
 ## Install
 
@@ -20,9 +20,9 @@ Install npm dependencies:
 
 ## Development
 
-Start a `geth` node:
+Start a `gpuffs` node:
 
-    $ geth --ws --wsorigins "http://localhost:3000" --unlock <your account>
+    $ gpuffs --ws --wsorigins "http://localhost:3000" --unlock <your account>
 
 Run dev server:
 
@@ -43,17 +43,6 @@ To create a build:
 This will generate the files in the `../build` folder.
 
 Navigating to `index.html` will start the app, but you will need to serve it over a local server like [MAMP](https://www.mamp.info).
-
----
-
-To deploy to the **wallet.ethereum.org** site, execute these commands:
-
-    $ git checkout gh-pages
-    $ git merge develop
-    $ cd app
-    $ meteor-build-client ../build --path "/"
-
-And push (or PR) your changes to the `gh-pages` branch.
 
 ---
 
