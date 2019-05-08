@@ -327,7 +327,7 @@ Creates subscription for a wallet contract, to watch for deposits, pending confi
 */
 var setupContractSubscription = function(newDocument, checkFromCreationBlock) {
   var blockToCheckBack =
-    (newDocument.checkpointBlock || 0) - ethereumConfig.rollBackBy;
+    (newDocument.checkpointBlock || 0) - puffscoinConfig.rollBackBy;
 
   if (checkFromCreationBlock || blockToCheckBack < 0)
     blockToCheckBack = newDocument.creationBlock;
@@ -503,7 +503,7 @@ var setupContractSubscription = function(newDocument, checkFromCreationBlock) {
               $set: {
                 checkpointBlock:
                   (currentBlock || EthBlocks.latest.number) -
-                  ethereumConfig.rollBackBy
+                  puffscoinConfig.rollBackBy
               }
             }
           );
@@ -804,7 +804,7 @@ observeWallets = function() {
     if (
       newDocument.address &&
       (!oldDocument || (oldDocument && !oldDocument.address)) &&
-      confirmations < ethereumConfig.requiredConfirmations
+      confirmations < puffscoinConfig.requiredConfirmations
     ) {
       var subscription = web3.eth
         .subscribe('newBlockHeaders')
@@ -813,7 +813,7 @@ observeWallets = function() {
             EthBlocks.latest.number - newDocument.creationBlock;
 
           if (
-            confirmations < ethereumConfig.requiredConfirmations &&
+            confirmations < puffscoinConfig.requiredConfirmations &&
             confirmations > 0
           ) {
             Helpers.eventLogs(
@@ -838,7 +838,7 @@ observeWallets = function() {
                 }
               }
             });
-          } else if (confirmations > ethereumConfig.requiredConfirmations) {
+          } else if (confirmations > puffscoinConfig.requiredConfirmations) {
             subscription.unsubscribe();
           }
         });
@@ -915,7 +915,7 @@ observeWallets = function() {
             arguments: [
               newDocument.owners,
               newDocument.requiredSignatures || 1,
-              newDocument.dailyLimit || ethereumConfig.dailyLimitDefault
+              newDocument.dailyLimit || puffscoinConfig.dailyLimitDefault
             ]
           })
             .send(
