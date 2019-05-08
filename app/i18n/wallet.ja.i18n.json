@@ -197,7 +197,7 @@
                     "description": "マルチプルアカウントによって管理されたコントラクト",
                     "text1": "これは接続アカウントです、管理しているのは",
                     "text2": "オーナーです。送信の上限は",
-                    "text3": "ether／１日",
+                    "text3": "PUFFScoin／１日",
                     "text4": "１日の上限を超えるトランザクションは承認が必要です",
                     "text5": "オーナーの",
                     "accountOwnersTitle": "アカウントオーナー",
@@ -250,7 +250,7 @@
             "texts": {
                 "ownerPaysGas": "ガスはウォレットコントラクトのオーナーによって支払われます",
                 "sendAmount": "送りたい <strong>__量__</strong>.",
-                "sendAmountEquivalent": "送りたい<strong>__量__</strong>ether、交換レートは<a href=\"https://www.cryptocompare.com/coins/eth/overview/BTC\" target=\"_blank\">cryptocompare.com</a>.<br>現在の価値に換算すると<strong>__etherAmount__</strong>.",
+                "sendAmountEquivalent": "送りたい<strong>__量__</strong>ether、交換レートは<a href=\"https://www.cryptocompare.com/coins/eth/overview/BTC\" target=\"_blank\">cryptocompare.com</a>.<br>現在の価値に換算すると<strong>__puffscoinAmount__</strong>.",
                 "sendToken": "送りたい<strong>__量__ __symbol__</strong> の <strong> __名前__</strong>.",
                 "overDailyLimit": "<p class=\"over-daily\">この量は１日の上限を超えています__limit__ (of __total__ per day),  __count__ 了承するための他のアカウント。</p>",
                 "overDailyLimit_plural": "<p class=\"over-daily\">この量は１日の上限を超えています __limit__ (of __total__ per day), so you need __count__ other accounts to confirm.</p>",
@@ -259,7 +259,7 @@
                 "noCodeInRecipient": "受領者アカウントはコントラクトではありません、何も実行することはできません。 <strong> コントラクトアドレスを'TO' に入れてください。 </strong>",
                 "addData": "トランザクションにデータを付与することができます。もし\"to\" の項目を空欄にするとデータを元にコントラクトを配置しようとします。",
                 "dataNotExecutable": "実行可能なデータではないようです、 that means this transaction will use all the gas you provide.",
-                "cantEstimateGas": "We can't estimate your gas usage properly, as you need at least 1 ether in your account.",
+                "cantEstimateGas": "We can't estimate your gas usage properly, as you need at least 1 PUFFScoin in your account.",
                 "estimatedGas": "必要とされるガスの推定",
                 "timeTexts": {
                     "0": "数分以内かそれ以上",
