@@ -199,7 +199,7 @@
                     "description": "一個受複數帳戶控制的契約。",
                     "text1": "這是一個聯合帳戶，受",
                     "text2": "個擁有帳戶控制。您每天最多可以發送",
-                    "text3": "ether 。",
+                    "text3": "PUFFScoin 。",
                     "text4": "超過每日提款限額的任何交易，都需要",
                     "text5": "個擁有帳戶確認。",
                     "accountOwnersTitle": "帳戶擁有者們",
