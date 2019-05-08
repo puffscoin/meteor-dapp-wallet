@@ -23,21 +23,21 @@
             "texts": {
                 "note": "ノート",
                 "balance": "残高",
-                "connectionErrorMist": "接続不可。 geth を使用して下さい。:<br><br><small><code>__node__</code><br><br>IPC pathがデフォルトのものかを確認して下さい、違うものを使用している場合は <code>datadir</code>, e.g.<br><code>geth --datadir ... --ipcpath /Users/&lt;yourUser&gt;/Library/Ethereum/geth.ipc</code><br>or<br><code>geth --datadir ... --ipcpath /Users/&lt;yourUser&gt;/.ethereum/geth.ipc</code>. <br><br>Optional add: <code>--unlock &lt;yourAccount&gt;.</code></small>",
-                "connectionErrorBrowser": "接続不可。以下のオプションから geth を開始して下さい:<br><br><small><code>__node__</code><br><br>Optional add: <code>--unlock &lt;yourAccount&gt;.</code></small>",
+                "connectionErrorMist": "接続不可。 gpuffs を使用して下さい。:<br><br><small><code>__node__</code><br><br>IPC pathがデフォルトのものかを確認して下さい、違うものを使用している場合は <code>datadir</code>, e.g.<br><code>gpuffs --datadir ... --ipcpath /Users/&lt;yourUser&gt;/Library/Puffscoin/gpuffs.ipc</code><br>or<br><code>gpuffs --datadir ... --ipcpath /Users/&lt;yourUser&gt;/.puffscoin/gpuffs.ipc</code>. <br><br>Optional add: <code>--unlock &lt;yourAccount&gt;.</code></small>",
+                "connectionErrorBrowser": "接続不可。以下のオプションから gpuffs を開始して下さい:<br><br><small><code>__node__</code><br><br>Optional add: <code>--unlock &lt;yourAccount&gt;.</code></small>",
                 "pendingConfirmationsBadge": "確認中!",
                 "nodeSyncing": "__blockDiff__ blocks left",
                 "blockReceived": "新ブロック受信",
                 "timeSinceBlock": "最後のブロックを受信してから",
                 "peers": "ピアーズ",
-                "testnetExplain": "これはテストネットです。これらのアドレスにetherを絶対に送らないでください。",
+                "testnetExplain": "これはテストネットです。これらのアドレスに PUFFScoins を絶対に送らないでください。",
                 "noAccounts": {
                     "title": "アカウント未登録",
                     "text": "パスワード付きのアカウントを作成してください。"
                 }
             },
             "error": {
-                "wrongChain": "間違ったチェーン上にいます。Ethereum Wallet App を再起動して下さい。"
+                "wrongChain": "間違ったチェーン上にいます。PUFFScoin Wallet App を再起動して下さい。"
             },
             "warnings": {
                 "txOriginVulnerabilityWallet": "このスマート契約財布は、古いコードを持っており、フィッシング攻撃の対象となります。",
@@ -85,10 +85,10 @@
             "requiredSignatures": "サインをして下さい",
             "owners": "持ち主",
             "walletsDescription": "これらの契約はブロックチェーン上に保管され、etherを安全に保管できます。オーナーとしてマルチプルアカウントを保有することができ、全てのトランザクションのログを見ることができます。",
-            "walletsDescriptionNotEnoughFunds": "１ether以上保有しているとより高度な契約ができる様になります。Once you have more than 1 ether you can create a more sophisticated contracts. ウォレットはベーシックなスマートコントラクトの一種で、資金をマルチプルアカウントで管理し、セキュリティー増強のためにオプションで１日当たりの引き出し制限することもできます。 カスタムコントラクトを作るには <em> コントラクト </em> タブ",
+            "walletsDescriptionNotEnoughFunds": "１PUFFScoin 以上保有しているとより高度な契約ができる様になります。Once you have more than 1 ether you can create a more sophisticated contracts. ウォレットはベーシックなスマートコントラクトの一種で、資金をマルチプルアカウントで管理し、セキュリティー増強のためにオプションで１日当たりの引き出し制限することもできます。 カスタムコントラクトを作るには <em> コントラクト </em> タブ",
             "accountsDescription": "アカウントはetherを保有できる、パスワードで保護されたキーです、イーサリアムベースのトークンかコインを保全しコントラクトを管理します。アカウントは入ってくる取引を表示できません。",
             "buttons": {
-                "deposit": "Etherをデポジット",
+                "deposit": "PUFFScoin をデポジット",
                 "buyEther": "Bitcoinを使ってデポジット",
                 "viewOnExplorer": "View on Etherscan",
                 "copyAddress": "アドレスをコピー",
