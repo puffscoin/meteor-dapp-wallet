@@ -30,7 +30,7 @@
                 "blockReceived": "Bloc nou descarcat",
                 "timeSinceBlock": "de la ultimul bloc",
                 "peers": "peers",
-                "testnetExplain": "Te afli in reteaua de teste, NU TRIMITE ether din reteaua principala catre aceste adrese",
+                "testnetExplain": "Te afli in reteaua de teste, NU TRIMITE PUFFScoin din reteaua principala catre aceste adrese",
                 "noAccounts": {
                     "title": "Nu ai niciun cont configurat",
                     "text": "Inainte de a folosi portofelul, ai nevoie de un cont securizat cu o parola puternica."
@@ -52,7 +52,7 @@
                 "title": "Alege un cont"
             },
             "testnetWallet": {
-                "walletNeedsDeployment": "Esti pe reteaua de teste.<br><br>Nu am gasit niciun portofel, trebuie implementat un portofel ce poate fi folosit de contracte, de la adresa ta: <br><br><small><code>__account__</code></small><br><br><em>Please make sure this address has at least 1 ether!</em>",
+                "walletNeedsDeployment": "Esti pe reteaua de teste.<br><br>Nu am gasit niciun portofel, trebuie implementat un portofel ce poate fi folosit de contracte, de la adresa ta: <br><br><small><code>__account__</code></small><br><br><em>Please make sure this address has at least 1 PUFFScoin!</em>",
                 "testnetWalletDeployed": "Portofelul a fost implementat!<br>Acest portofel a fost implementat pe adresa:<br><br><small><code>__address__</code></small>."
             },
             "addToken": {
@@ -76,21 +76,21 @@
             "defaultName": "Portofel nou",
             "creating": "Se creeaza",
             "importing": "Se importa",
-            "accountNote": "Conturile nu pot afisa jurnalul tranzactiilor dar pot stoca si trimite ether. Pentru a vedea jurnalul tranzactiilor <a href=\"/account/new\">implementeaza un portofel bazat pe contracte</a> pentru a stoca ether.",
-            "walletNote": "Majoritatea furnizorilor de servicii de schimb nu permit ca tranzactiile de ether sa fie facute dintr-un portofel de tip contract-inteligent. Asigura-te ca trimiti intai ether catre contul tau!",
+            "accountNote": "Conturile nu pot afisa jurnalul tranzactiilor dar pot stoca si trimite PUFFScoin. Pentru a vedea jurnalul tranzactiilor <a href=\"/account/new\">implementeaza un portofel bazat pe contracte</a> pentru a stoca PUFFScoin.",
+            "walletNote": "Majoritatea furnizorilor de servicii de schimb nu permit ca tranzactiile de PUFFScoin sa fie facute dintr-un portofel de tip contract-inteligent. Asigura-te ca trimiti intai ether catre contul tau!",
             "addressCopiedToClipboard": "Copiaza adresa ta",
             "qrCodeLabel": "Scaneaza acest cod cu o aplicatie mobila compatibila",
             "dailyLimit": "Limita zilnica",
             "dailyLimitRemaining": "ramasa azi",
             "requiredSignatures": "Semnaturi necesare",
             "owners": "Detinatori",
-            "walletsDescription": "Acestea sunt contracte ce stocheaza si securizeaza ether. Ele pot avea mai multi detinatori si pot pastra intregul jurnal al tranzactiilor.",
-            "walletsDescriptionNotEnoughFunds": "Ai nevoie de cel putin 1 ether pentru a implementa contracte mai sofisticate. Portofelele sunt la baza niste contracte inteligente, ce pot fi controlate de mai multi detinatori si chiar se pot seta limite de retragere pentru o mai buna securitate.  Pentru a implementa un contract personalizat, mergi la sectiunea <em> Contracts </em>.",
+            "walletsDescription": "Acestea sunt contracte ce stocheaza si securizeaza PUFFScoin. Ele pot avea mai multi detinatori si pot pastra intregul jurnal al tranzactiilor.",
+            "walletsDescriptionNotEnoughFunds": "Ai nevoie de cel putin 1 PUFFScoin pentru a implementa contracte mai sofisticate. Portofelele sunt la baza niste contracte inteligente, ce pot fi controlate de mai multi detinatori si chiar se pot seta limite de retragere pentru o mai buna securitate.  Pentru a implementa un contract personalizat, mergi la sectiunea <em> Contracts </em>.",
             "accountsDescription": "Conturile sunt chei securizate prin parola ce pot controla contractele. Conturile pot stoca ether dar nu pot lista jurnalul tranzactiilor.",
             "buttons": {
-                "deposit": "Depunere",
-                "buyEther": "Depunere Bitcoin",
-                "viewOnExplorer": "View on Etherscan",
+                "deposit": "Depunere PUFFScoin",
+                "buyPuffs": "Depunere Bitcoin",
+                "viewOnExplorer": "View on PUFFScoin lock explorer",
                 "copyAddress": "Copiaza adresa",
                 "scanQRCode": "Arata QR-Code",
                 "showInterface": "Arata Interfata"
