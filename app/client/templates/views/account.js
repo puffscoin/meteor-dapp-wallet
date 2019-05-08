@@ -15,7 +15,7 @@ var addLogWatching = function(newDocument) {
     newDocument.address
   );
   var blockToCheckBack =
-    (newDocument.checkpointBlock || 0) - ethereumConfig.rollBackBy;
+    (newDocument.checkpointBlock || 0) - puffscoinConfig.rollBackBy;
 
   if (blockToCheckBack < 0) blockToCheckBack = 0;
 
@@ -55,7 +55,7 @@ var addLogWatching = function(newDocument) {
           $set: {
             checkpointBlock:
               (currentBlock || EthBlocks.latest.number) -
-              ethereumConfig.rollBackBy
+              puffscoinConfig.rollBackBy
           }
         }
       );
@@ -161,7 +161,7 @@ Template['views_account'].helpers({
     */
   showDailyLimit: function() {
     return (
-      this.dailyLimit && this.dailyLimit !== ethereumConfig.dailyLimitDefault
+      this.dailyLimit && this.dailyLimit !== puffscoinConfig.dailyLimitDefault
     );
   },
   /**
