@@ -37,7 +37,7 @@
                 }
             },
             "error": {
-                "wrongChain": "您似乎在一條不同的鏈上，請重新啟動 Ethereum 錢包 App！"
+                "wrongChain": "您似乎在一條不同的鏈上，請重新啟動 PUFFScoin 錢包 App！"
             },
             "warnings": {
                 "txOriginVulnerabilityWallet": "這個聰明的合同錢包過時代碼，並受網絡釣魚攻擊。",
@@ -54,7 +54,7 @@
                 "title": "選擇一個帳戶"
             },
             "testnetWallet": {
-                "walletNeedsDeployment": "您似乎在 testnet 上。<br><br>沒有發現任何原始錢包契約程式碼，我們需要從您的位址佈署一個，可讓錢包契約的 stub contract 使用：<br><br><small><code>__account__</code></small><br><br><em>請確認這個地址至少有 1 ether！</em>",
+                "walletNeedsDeployment": "您似乎在 testnet 上。<br><br>沒有發現任何原始錢包契約程式碼，我們需要從您的位址佈署一個，可讓錢包契約的 stub contract 使用：<br><br><small><code>__account__</code></small><br><br><em>請確認這個地址至少有 1 PUFFScoin！</em>",
                 "testnetWalletDeployed": "原始錢包契約佈署了！<br>一個原始錢包契約佈署在位址：<br><br><small><code>__address__</code></small>."
             },
             "addToken": {
@@ -78,21 +78,21 @@
             "defaultName": "未命名",
             "creating": "創建",
             "importing": "匯入",
-            "accountNote": "帳戶沒辦法顯示正在進帳的交易，但可以顯示餘額和送出 ether。要看進帳的交易，創建 <a href=\"/account/new\">錢包契約</a> 來儲存 ether。",
-            "walletNote": "多數交易所尚未支援從契約錢包收受 ether。務必先把錢移動到一個帳戶位址！",
+            "accountNote": "帳戶沒辦法顯示正在進帳的交易，但可以顯示餘額和送出 PUFFScoin。要看進帳的交易，創建 <a href=\"/account/new\">錢包契約</a> 來儲存 PUFFScoin。",
+            "walletNote": "多數交易所尚未支援從契約錢包收受 PUFFScoin。務必先把錢移動到一個帳戶位址！",
             "addressCopiedToClipboard": "已複製到剪貼簿",
             "qrCodeLabel": "將相容的手機 app 指向這個二維條碼",
             "dailyLimit": "每日限額",
             "dailyLimitRemaining": "今日剩餘限額",
             "requiredSignatures": "需要簽章",
             "owners": "擁有者",
-            "walletsDescription": "這些是存在區塊鏈中，可以保存和保障 ether 的契約。他們可以使用多個帳戶擁有者，而且記錄所有交易的日誌。",
-            "walletsDescriptionNotEnoughFunds": "一旦你有多於 1 ether 時你可以創建更成熟的契約。錢包只是一種基本的智能契約，讓你的基金能夠由多個帳戶控制，而且想要的話可以設定每日提款限額來增加安全性。要創建自己的客製化契約，到<em> 契約 </em> 分頁。",
-            "accountsDescription": "帳戶由密碼保護，可以儲存 ether ，保障基於以太坊的 Token 或貨幣，並且控制契約。帳戶無法顯示進帳中的交易。",
+            "walletsDescription": "這些是存在區塊鏈中，可以保存和保障 PUFFScoin 的契約。他們可以使用多個帳戶擁有者，而且記錄所有交易的日誌。",
+            "walletsDescriptionNotEnoughFunds": "一旦你有多於 1 PUFFScoin 時你可以創建更成熟的契約。錢包只是一種基本的智能契約，讓你的基金能夠由多個帳戶控制，而且想要的話可以設定每日提款限額來增加安全性。要創建自己的客製化契約，到<em> 契約 </em> 分頁。",
+            "accountsDescription": "帳戶由密碼保護，可以儲存 PUFFScoin ，保障基於以太坊的 Token 或貨幣，並且控制契約。帳戶無法顯示進帳中的交易。",
             "buttons": {
-                "deposit": "存入 Ether",
+                "deposit": "存入 PUFFScoin",
                 "depositBitcoin": "使用 Bitcoin 做存款",
-                "viewOnExplorer": "View on Etherscan",
+                "viewOnExplorer": "View on Puffs",
                 "copyAddress": "複製位址",
                 "scanQRCode": "顯示二維條碼",
                 "showInterface": "顯示界面"
