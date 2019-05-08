@@ -31,14 +31,14 @@
                 "timeSinceBlock": "nga blloku i fundit",
                 "peers": "miq",
                 "waitingForBlocks": "Duke pritur blloqe..",
-                "testnetExplain": "Jeni në rrjetin test, MOS DËRGONI Ether të vërtetë drejt këtyre adresave",
+                "testnetExplain": "Jeni në rrjetin test, MOS DËRGONI PUFFScoin të vërtetë drejt këtyre adresave",
                 "noAccounts": {
                   "title": "Nuk keni ende llogari",
                     "text": "Duhet të krijoni të paktën një llogari me fjalëkalim të fortë."
                 }
             },
             "error": {
-                "wrongChain": "Duket se jeni në zinxhir tjetër. Ju lutemi të rihapni aplikacionin e kuletës Ethereum!"
+                "wrongChain": "Duket se jeni në zinxhir tjetër. Ju lutemi të rihapni aplikacionin e kuletës PUFFScoin!"
             },
             "warnings": {
                 "txOriginVulnerabilityWallet": "Kuleta e kësaj kontrate të zgjuar ka kod të papërditësuar dhe mund të jetë subjekt i sulmeve të vjedhjes së identitetit. ",
@@ -55,7 +55,7 @@
                 "title": "Zgjidhni një llogari"
             },
             "testnetWallet": {
-                "walletNeedsDeployment": "Duket se ndodheni në një rrjet provë.<br><br>Nuk u gjet kod origjinal kontrate. Duhet ta krijojmë një, i cili mund të përdoret nga kontratat cungje, nga adresa juaj: <br><br><small><code>__account__</code></small><br><br><em>Ju lutemi sigurohuni që kjo adresë ka të paktën 1 Ether!</em>",
+                "walletNeedsDeployment": "Duket se ndodheni në një rrjet provë.<br><br>Nuk u gjet kod origjinal kontrate. Duhet ta krijojmë një, i cili mund të përdoret nga kontratat cungje, nga adresa juaj: <br><br><small><code>__account__</code></small><br><br><em>Ju lutemi sigurohuni që kjo adresë ka të paktën 1 PUFFScoin.</em>",
                 "testnetWalletDeployed": "Kontrata origjinale e kuletës u vendos!<br>Një kontratë origjinale kulete u vendos në adresën:<br><br><small><code>__address__</code></small>."
             },
             "addToken": {
@@ -79,9 +79,9 @@
             "defaultName": "Pa emër",
             "creating": "Duke krijuar",
             "importing": "Duke marrë",
-            "accountNote": "Llogaritë nuk mund të tregojnë transaksionet hyrëse, por mund të ruajnë, mbajnë dhe dërgojnë Ether. Për të parë transaksionet ardhëse <a href=\"/account/new\">krijoni një kontratë kulete</a> për të ruajtur ether.",
+            "accountNote": "Llogaritë nuk mund të tregojnë transaksionet hyrëse, por mund të ruajnë, mbajnë dhe dërgojnë PUFFScoin. Për të parë transaksionet ardhëse <a href=\"/account/new\">krijoni një kontratë kulete</a> për të ruajtur PUFFScoin.",
             "outOfSyncNote": "Nëse balanca e llogarisë nuk duket e përditësuar, sigurohuni që jeni të sinkronizuar me rrjetin.",
-            "walletNote": "Shumica e pikave të këmbimit nuk lejojnë akoma marrjen e ether nga kuleta kontratash. Sigurohuni që ta kaloni balancën në një adresë llogarie në fillim!",
+            "walletNote": "Shumica e pikave të këmbimit nuk lejojnë akoma marrjen e PUFFScoin nga kuleta kontratash. Sigurohuni që ta kaloni balancën në një adresë llogarie në fillim!",
             "addressCopiedToClipboard": "U kopjua",
             "addressNotCopiedToClipboard": "Problem me kopjimin e adresës. Ju lutemi provoni përsëri.",
             "qrCodeLabel": "Drejtoni një aplikacion të përshtatshëm celular për të lexuar këtë kod",
@@ -89,13 +89,13 @@
             "dailyLimitRemaining": "të mbetura sot",
             "requiredSignatures": "Firma të nevojshme",
             "owners": "Pronarë",
-            "walletsDescription": "Këto kontrata ruhen në zinxhirin e blloqeve dhe mund të ruajnë Ether. Mund të kenë disa llogari si pronarë dhe ruajnë një listë të plotë të transaksioneve.",
-            "walletsDescriptionNotEnoughFunds": "Pasi të keni më shumë se 1 Ether mund të krijoni kontrata më të sofistikuara. Kuletat janë kontrata të zgjuara që lejojnë disa llogari të kontrollojnë fondet tuaja. Mund të kenë limit mbi tërheqjet për të rritur nivelin e sigurisë (sipas dëshirës). Krijoni kontratat tuaj sipas kërkesës në faqen <em>Kontrata</em>.",
-            "accountsDescription": "Llogaritë janë çelësa të ruajtur me fjalëkalim që mund të mbajnë Ether dhe valuta të tjera të bazuara mbi Ether. Ato mund të kontrollojnë kontrata, por nuk mund të shfaqin transaksione ardhëse.",
+            "walletsDescription": "Këto kontrata ruhen në zinxhirin e blloqeve dhe mund të ruajnë PUFFScoin. Mund të kenë disa llogari si pronarë dhe ruajnë një listë të plotë të transaksioneve.",
+            "walletsDescriptionNotEnoughFunds": "Pasi të keni më shumë se 1 PUFFScoin mund të krijoni kontrata më të sofistikuara. Kuletat janë kontrata të zgjuara që lejojnë disa llogari të kontrollojnë fondet tuaja. Mund të kenë limit mbi tërheqjet për të rritur nivelin e sigurisë (sipas dëshirës). Krijoni kontratat tuaj sipas kërkesës në faqen <em>Kontrata</em>.",
+            "accountsDescription": "Llogaritë janë çelësa të ruajtur me fjalëkalim që mund të mbajnë PUFFScoin dhe valuta të tjera të bazuara mbi PUFFScoin. Ato mund të kontrollojnë kontrata, por nuk mund të shfaqin transaksione ardhëse.",
             "buttons": {
-                "deposit": "Transfer Ether & Tokens",
-                "buyEther": "Fund with Bitcoin",
-                "viewOnExplorer": "View on Etherscan",
+                "deposit": "Transfer PUFFScoin & Tokens",
+                "buyPuffs": "Fund with Bitcoin",
+                "viewOnExplorer": "View on PUFFScoin block explorer",
                 "copyAddress": "Copy address",
                 "scanQRCode": "Show QR-Code",
                 "showInterface": "Show Interface"
