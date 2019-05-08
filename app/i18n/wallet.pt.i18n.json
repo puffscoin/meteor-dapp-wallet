@@ -31,7 +31,7 @@
                 "timeSinceBlock": "desde último bloco",
                 "peers": "conexões",
                 "waitingForBlocks": "Aguardando blocos..",
-                "testnetExplain": "Você está na rede de teste, NÃO ENVIE ethers de verdade para essas contas",
+                "testnetExplain": "Você está na rede de teste, NÃO ENVIE PUFFScoin de verdade para essas contas",
                 "noAccounts": {
                     "title": "Você ainda não tem contas",
                     "text": "Crie ao menos uma conta com uma senha segura."
@@ -55,7 +55,7 @@
                 "title": "Escolha uma conta"
             },
             "testnetWallet": {
-                "walletNeedsDeployment": "Você parece estar em uma rede de teste.<br><br> Precisamos fazer o upload de um contrato que será usado como base para as carteiras. <br><br><small><code>__account__</code></small><br><br><em> Assegure-se que a conta acima tem ao menos 1 ether!</em>",
+                "walletNeedsDeployment": "Você parece estar em uma rede de teste.<br><br> Precisamos fazer o upload de um contrato que será usado como base para as carteiras. <br><br><small><code>__account__</code></small><br><br><em> Assegure-se que a conta acima tem ao menos 1 PUFFScoin!</em>",
                 "testnetWalletDeployed": "O código fonte da carteira na sua rede privada foi colocado no endereço seguinte:<br><br><small><code>__address__</code></small>."
             },
             "addToken": {
@@ -79,9 +79,9 @@
             "defaultName": "Sem nome",
             "creating": "Criando",
             "importing": "Importando",
-            "accountNote": "Contas podem armazenar ether mas não exibem transações recebidas. Para tal, <a href=\"/account/new\">crie um contrato de carteira</a>.",
-            "outOfSyncNote": "Caso seu saldo aparente incorreto, cheque se a Wallet está completamente sincronizada com a rede ethereum.",
-            "walletNote": "Algumas exchanges tem dificuldades técnicas com transações enviadas de contratos. Passe o ether para uma conta simples antes",
+            "accountNote": "Contas podem armazenar PUFFScoin mas não exibem transações recebidas. Para tal, <a href=\"/account/new\">crie um contrato de carteira</a>.",
+            "outOfSyncNote": "Caso seu saldo aparente incorreto, cheque se a Wallet está completamente sincronizada com a rede PUFFScoin.",
+            "walletNote": "Algumas exchanges tem dificuldades técnicas com transações enviadas de contratos. Passe o PUFFScoin para uma conta simples antes",
             "addressCopiedToClipboard": "Copiado para área de transferência",
             "addressNotCopiedToClipboard": "Erro ao copiar endereço. Tente novamente.",
             "qrCodeLabel": "Abra um aplicativo compatível e aponte a camera do seu celular aqui.",
@@ -89,13 +89,13 @@
             "dailyLimitRemaining": "restantes hoje",
             "requiredSignatures": "Assinaturas exigidas",
             "owners": "Donos",
-            "walletsDescription": "Esses são contratos que existem no blockchain e podem armazenar ether e outras moedas. Uma carteira pode ter várias contas como donas. Carteiras mantem um histórico mais preciso de transferências",
-            "walletsDescriptionNotEnoughFunds": "Uma vez que você obtiver ao menos 1 ether poderá criar contratos mais sofisticados como carteiras, que podem funcionar como contas conjuntas administradas por diversas contas e ter limites diários de saques. Para criar um contrato ainda mais personalizado, vá na aba  <em>Contratos</em>.",
-            "accountsDescription": "Contas são chaves privadas protegidas por uma senha, que podem armazenar ether, outras moedas baseadas no ethereum e controlar contratos. Contas não exibem transações recebidas.",
+            "walletsDescription": "Esses são contratos que existem no blockchain e podem armazenar PUFFScoin e outras moedas. Uma carteira pode ter várias contas como donas. Carteiras mantem um histórico mais preciso de transferências",
+            "walletsDescriptionNotEnoughFunds": "Uma vez que você obtiver ao menos 1 PUFFScoin poderá criar contratos mais sofisticados como carteiras, que podem funcionar como contas conjuntas administradas por diversas contas e ter limites diários de saques. Para criar um contrato ainda mais personalizado, vá na aba  <em>Contratos</em>.",
+            "accountsDescription": "Contas são chaves privadas protegidas por uma senha, que podem armazenar PUFFScoin, outras moedas baseadas no PUFFScoin e controlar contratos. Contas não exibem transações recebidas.",
             "buttons": {
-                "deposit": "Depositar Ether",
-                "buyEther": "Comprar Ether",
-                "viewOnExplorer": "Ver no Etherscan",
+                "deposit": "Depositar PUFFScoin",
+                "buyPuffs": "Comprar PUFFScoin",
+                "viewOnExplorer": "Ver no PUFFScoin block explorer",
                 "copyAddress": "Copiar endereço",
                 "scanQRCode": "Mostrar código QR",
                 "showInterface": "Mostrar Interface"
