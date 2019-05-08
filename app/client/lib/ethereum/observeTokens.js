@@ -17,7 +17,7 @@ var setupContractSubscription = function(newDocument) {
   if (!contractInstance) return;
 
   var blockToCheckBack =
-    (newDocument.checkpointBlock || 0) - ethereumConfig.rollBackBy;
+    (newDocument.checkpointBlock || 0) - puffscoinConfig.rollBackBy;
 
   if (blockToCheckBack < 0) {
     blockToCheckBack = 0;
@@ -79,7 +79,7 @@ var setupContractSubscription = function(newDocument) {
             $set: {
               checkpointBlock:
                 (currentBlock || EthBlocks.latest.number) -
-                ethereumConfig.rollBackBy
+                puffscoinConfig.rollBackBy
             }
           }
         );
