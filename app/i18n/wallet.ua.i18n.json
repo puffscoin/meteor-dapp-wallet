@@ -82,8 +82,8 @@
             "accountsDescription": "Аккаунти захищені паролем. Вони дозволяють зберігати ефір, та інші побудовані на ефіріумі купони та валюти. Аккаунти контролюють контракти. Аккаунт відібражає гроші що надходять.",
             "buttons": {
                 "deposit": "Поповнити Ефіріум",
-                "buyEther": "Поповнити за допомогою Біткоїнів",
-                "viewOnExplorer": "View on Etherscan",
+                "buyPuffs": "Поповнити за допомогою Біткоїнів",
+                "viewOnExplorer": "View on PUFFScoin block explorer",
                 "copyAddress": "Копіювати адресу",
                 "scanQRCode": "Показати QR-код",
                 "showInterface": "Показати інтерфейс"
@@ -243,7 +243,7 @@
             "texts": {
                 "ownerPaysGas": "Газ оплачується власником контракту гаманця",
                 "sendAmount": "Ви бажаєте відправити <strong>__amount__</strong>.",
-                "sendAmountEquivalent": "Ви бажаєте відправити <strong>__amount__</strong> в ефір, по курсу <a href=\"https://www.cryptocompare.com/coins/eth/overview/BTC\" target=\"_blank\">cryptocompare.com</a>.<br>Зараз це еквівалентно <strong>__etherAmount__</strong>.",
+                "sendAmountEquivalent": "Ви бажаєте відправити <strong>__amount__</strong> в ефір, по курсу <a href=\"https://www.cryptocompare.com/coins/eth/overview/BTC\" target=\"_blank\">cryptocompare.com</a>.<br>Зараз це еквівалентно <strong>__puffsAmount__</strong>.",
                 "sendToken": "Ви бажаєте відправити <strong>__amount__ __symbol__</strong>  <strong> __name__</strong>.",
                 "overDailyLimit": "<p class=\"over-daily\">Цей платіж перевищує денний ліміт на __limit__ ( __total__ на день), вам потрібне підтвердження __count__ аккаунтів.</p>",
                 "overDailyLimit_plural": "<p class=\"over-daily\">Цей платіж перевищує денний ліміт на __limit__ ( __total__ на день), вам потрібне підтвердження __count__ аккаунтів.</p>",
