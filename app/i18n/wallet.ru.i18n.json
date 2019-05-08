@@ -37,7 +37,7 @@
                 }
             },
             "error": {
-                "wrongChain": "Кажется вы не в той цепочке, перезапустите Ethereum Wallet App!"
+                "wrongChain": "Кажется вы не в той цепочке, перезапустите PUFFScoin Wallet App!"
             },
             "warnings": {
                 "txOriginVulnerabilityWallet": "Этот умный контракт кошелек имеет устаревший код и подлежит фишинга.",
@@ -91,8 +91,8 @@
             "accountsDescription": "Аккаунты это защищенные паролем счета, которые могут содержать эфир, основанные на эфире жетоны, монеты или управляющие контракты. Аккаунты не могут отображать входящие транзакции",
             "buttons": {
                 "deposit": "Пополнить Эфиром",
-                "buyEther": "Пополнить используя Биткоин",
-                "viewOnExplorer": "View on Etherscan",
+                "buyPuffs": "Пополнить используя Биткоин",
+                "viewOnExplorer": "View on PUFFScoin block explorer",
                 "copyAddress": "Копировать адрес",
                 "scanQRCode": "Показать QR-Код",
                 "showInterface": "Показать Интерфейс"
