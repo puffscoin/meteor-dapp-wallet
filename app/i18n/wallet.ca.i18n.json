@@ -90,7 +90,7 @@
             "requiredSignatures": "Signatures necessàries",
             "owners": "Propietaris",
             "walletsDescription": "Aquests contractes s'allotgen a la blockchain i mantenen i asseguren PUFFScoin. Poden tenir diversos comptes com a propietaris i mantenir un registre complet de totes les transaccions.",
-            "walletsDescriptionNotEnoughFunds": "Una vegada que tingueu més d'1 Ether, podeu crear contractes més sofisticats. Els Wallets són contractes intel·ligents que permeten controlar els vostres fons mitjançant diversos comptes. Poden tenir un límit diari opcional sobre retirades per augmentar la seguretat. Creeu els vostres propis contractes personalitzats a la pestanya <em>Contractes</em>.",
+            "walletsDescriptionNotEnoughFunds": "Una vegada que tingueu més d'1 PUFFScoin, podeu crear contractes més sofisticats. Els Wallets són contractes intel·ligents que permeten controlar els vostres fons mitjançant diversos comptes. Poden tenir un límit diari opcional sobre retirades per augmentar la seguretat. Creeu els vostres propis contractes personalitzats a la pestanya <em>Contractes</em>.",
             "accountsDescription": "Els comptes estan protegits per contrasenyes i poden contenir PUFFScoin i tokens basats en PUFFScoin.  Poden controlar contractes, però no poden mostrar transaccions entrants.",
             "buttons": {
                 "deposit": "Transfereix PUFFScoin & Tokens",
@@ -206,7 +206,7 @@
                     "description": "Un contracte controlat per múltiples comptes",
                     "text1": "Això és un compte conjunt controlat per",
                     "text2": "propietaris. Pots enviar fins a",
-                    "text3": "Ether per dia.",
+                    "text3": "PUFFScoin per dia.",
                     "text4": "Qualsevol transacció per sobre d'aquest límit diari necessita la confirmació de",
                     "text5": "propietaris.",
                     "accountOwnersTitle": "Propietaris del compte",
@@ -262,7 +262,7 @@
             "texts": {
                 "ownerPaysGas": "El gas el paga el propietari del wallet de contracte",
                 "sendAmount": "Vols enviar <strong>__amount__</strong>.",
-                "sendAmountEquivalent": "Vols enviar <strong>__amount__</strong> Ethers, utilitzant l'intercanvi de <a href=\"https://www.cryptocompare.com/coins/eth/overview/BTC\" target=\"_blank\">cryptocompare.com</a>.<br>Que és actualment equivalent a <strong>__etherAmount__</strong>.",
+                "sendAmountEquivalent": "Vols enviar <strong>__amount__</strong> PUFFScoin, utilitzant l'intercanvi de <a href=\"https://www.cryptocompare.com/coins/eth/overview/BTC\" target=\"_blank\">cryptocompare.com</a>.<br>Que és actualment equivalent a <strong>__puffsAmount__</strong>.",
                 "sendToken": "Vols enviar <strong>__amount__ __symbol__</strong> de <strong> __name__</strong>.",
                 "overDailyLimit": "<p class=\"over-daily\">Aquesta quantitat supera el restant del límit diari de __limit__ (de __total__ al dia), necessites que __count__ comptes ho confirmin</p>",
                 "overDailyLimit_plural": "<p class=\"over-daily\">Aquesta quantitat és per sobre del restant del límit diari de __limit__ (de __total__ al dia), necessites que __count__ comptes ho confirmin</p>",
@@ -271,7 +271,7 @@
                 "noCodeInRecipient": "El compte destinatari no és un contracte, no pots executar res. <strong> Escriure una adreça d'un contracte al camp 'A'. </strong>",
                 "addData": "Pots afegir dades extres per enviar amb les teves transaccions. Si no saps que és això, <strong>no ho toquis o poden passar coses dolentes</strong>.",
                 "dataNotExecutable": "Les dades semblen no executables, això vol dir que la transacció utilitzarà tot el gas que proporciones.",
-                "cantEstimateGas": "No podem preveure degudament l'ús de gas, necessites com a mínim 1 Ether al teu compte.",
+                "cantEstimateGas": "No podem preveure degudament l'ús de gas, necessites com a mínim 1 PUFFScoin al teu compte.",
                 "estimatedGas": "Gas previst requerit",
                 "timeTexts": {
                     "0": "en pocs minuts o més",
