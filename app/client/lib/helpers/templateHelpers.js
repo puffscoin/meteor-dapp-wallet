@@ -49,11 +49,11 @@ Template.registerHelper('isBrowserMode', function() {
 });
 
 /**
-Check if currency unit is an ether unit
+Check if currency unit is a puffscoin unit
 
-@method (isEtherUnit)
+@method (isPuffsUnit)
 **/
-Template.registerHelper('isEtherUnit', function() {
+Template.registerHelper('isPuffsUnit', function() {
   var unit = EthTools.getUnit();
   return !(
     unit === 'usd' ||
@@ -235,7 +235,7 @@ Template.registerHelper('formatTime', Helpers.formatTime);
 /**
 Formats a given transactions balance
 
-    {{formatTransactionBalance value exchangeRates "ether"}}
+    {{formatTransactionBalance value exchangeRates "puffs"}}
 
 @method formatTransactionBalance
 @param {String} value  the value to format
