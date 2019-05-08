@@ -20,27 +20,27 @@ Contains all collection observers
 collectionObservers = [];
 
 /**
-Config for the ethereum connector
+Config for the puffscoin connector
 
 @property config
 */
-ethereumConfig = {
+puffscoinConfig = {
   /**
     Number of blocks to rollback, from the last checkpoint block of the wallet.
 
-    @property ethereumConfig.rollBackBy
+    @property puffscoinConfig.rollBackBy
     */
   rollBackBy: 0,
   /**
     Number of blocks to confirm a wallet
 
-    @property ethereumConfig.requiredConfirmations
+    @property puffscoinConfig.requiredConfirmations
     */
   requiredConfirmations: 12,
   /**
     The default daily limit used for simple accounts
 
-    @property ethereumConfig.dailyLimitDefault
+    @property puffscoinConfig.dailyLimitDefault
     */
   dailyLimitDefault: '100000000000000000000000000'
 };
@@ -54,7 +54,7 @@ Session.setDefault('network', false);
 var checkNetwork = function() {
   web3.eth.getBlock(0).then(function(block) {
     switch (block.hash) {
-      case '0xd4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3':
+      case '0x61bf13fe6fff833c26a0a377b9613c896b6d1ed1cb4d46dd3762c7c2cbb2a6a5':
         Session.set('network', 'main');
         break;
       case '0x6341fd3daf94b748c72ced5a5b26028f2474f5f00d824504e4fa37a75767e177':
