@@ -206,7 +206,7 @@ var autoScanGetTokens = function(template) {
                 })
                 .then(function(result) {
                   const tokenAmt = web3.utils.toBN(result);
-                  const tokenAmtInEther = web3.utils.fromWei(tokenAmt, 'ether');
+                  const tokenAmtInPuffs = web3.utils.fromWei(tokenAmt, 'puffs');
 
                   if (!tokenAmt.isZero()) {
                     console.log(
@@ -216,7 +216,7 @@ var autoScanGetTokens = function(template) {
                         ') balance for ' +
                         account +
                         ': ' +
-                        tokenAmtInEther
+                        tokenAmtInPuffs
                     );
 
                     tokensToAdd.push(token);
