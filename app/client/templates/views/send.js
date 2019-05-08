@@ -255,7 +255,7 @@ Template['views_send'].onRendered(function() {
     // if(_.isString(address))
     //     address = address.toLowerCase();
 
-    // Ether tx estimation
+    // PUFFScoin tx estimation
     if (tokenAddress === 'puffs') {
       if (EthAccounts.findOne({ address: address }, { reactive: false })) {
         web3.eth.estimateGas(
@@ -403,7 +403,7 @@ Template['views_send'].helpers({
     return Helpers.formatNumberByDecimals(amount, token.decimals);
   },
   /**
-    Returns the total amount - the fee paid to send all ether/coins out of the account
+    Returns the total amount - the fee paid to send all PUFFScoins/coins out of the account
 
     @method (sendAllAmount)
     */
@@ -560,7 +560,7 @@ Template['views_send'].events({
     var value = e.currentTarget.value;
     TemplateVar.set('selectedToken', value);
 
-    if (value === 'ether')
+    if (value === 'puffs')
       TemplateVar.setTo('.dapp-data-textarea', 'value', '');
 
     // trigger amount box change
@@ -644,7 +644,7 @@ Template['views_send'].events({
 
       if (
         selectedAccount.balance === '0' &&
-        (!selectedAccount.owners || tokenAddress === 'ether')
+        (!selectedAccount.owners || tokenAddress === 'puffs')
       )
         return GlobalNotification.warning({
           content: 'i18n:wallet.send.error.emptyWallet',
