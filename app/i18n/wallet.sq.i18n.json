@@ -23,8 +23,8 @@
             "texts": {
                 "note": "Shënim",
                 "balance": "Balanca",
-                "connectionErrorMist": "Nuk mund të lidhet. Ju lutemi të nisni geth duke përdorur:<br><br><small><code>__node__</code><br><br>Sigurohuni që vendndodhja e IPC të jetë ajo e parazgjedhur, nëse përdoret <code>datadir</code> e ndryshme, p.sh.<br><code>geth --datadir ... --ipcpath /Users/&lt;perdoruesiJuaj&gt;/Library/Ethereum/geth.ipc</code><br>or<br><code>geth --datadir ... --ipcpath /Users/&lt;perdoruesiJuaj&gt;/.ethereum/geth.ipc</code>. <br><br>Sipas dëshirës shtoni: <code>--unlock &lt;llogariaJuaj&gt;.</code></small>",
-                "connectionErrorBrowser": "Nuk mund të lidhet. Ju lutemi të nisni geth duke përdorur:<br><br><small><code>__node__</code><br><br>Sipas dëshirës shtoni: <code>--unlock &lt;llogariaJuaj&gt;.</code></small>",
+                "connectionErrorMist": "Nuk mund të lidhet. Ju lutemi të nisni gpuffs duke përdorur:<br><br><small><code>__node__</code><br><br>Sigurohuni që vendndodhja e IPC të jetë ajo e parazgjedhur, nëse përdoret <code>datadir</code> e ndryshme, p.sh.<br><code>gpuffs --datadir ... --ipcpath /Users/&lt;perdoruesiJuaj&gt;/Library/Puffscoin/gpuffs.ipc</code><br>or<br><code>gpuffs --datadir ... --ipcpath /Users/&lt;perdoruesiJuaj&gt;/.puffscoin/gpuffs.ipc</code>. <br><br>Sipas dëshirës shtoni: <code>--unlock &lt;llogariaJuaj&gt;.</code></small>",
+                "connectionErrorBrowser": "Nuk mund të lidhet. Ju lutemi të nisni gpuffs duke përdorur:<br><br><small><code>__node__</code><br><br>Sipas dëshirës shtoni: <code>--unlock &lt;llogariaJuaj&gt;.</code></small>",
                 "pendingConfirmationsBadge": "Duke pritur konfirmim!",
                 "nodeSyncing": "__blockDiff__ blloqe të mbetura",
                 "blockReceived": "U mor bllok i ri",
