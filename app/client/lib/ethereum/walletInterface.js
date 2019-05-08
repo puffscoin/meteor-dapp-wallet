@@ -315,7 +315,7 @@ var deployTestnetWallet = function() {
                 console.log('Contract created at: ', contract.address);
 
                 LocalStore.set(
-                  'ethereum_testnetWalletContractAddress',
+                  'puffscoin_testnetWalletContractAddress',
                   contract.address
                 );
                 replaceStubAddress(contract.address);
@@ -412,7 +412,7 @@ checkForOriginalWallet = function() {
     checkCodeOnAddress(mainNetAddress, function() {
       checkCodeOnAddress(testNetAddress, function() {
         var privateNetAddress = LocalStore.get(
-          'ethereum_testnetWalletContractAddress'
+          'puffscoin_testnetWalletContractAddress'
         );
 
         if (privateNetAddress)
