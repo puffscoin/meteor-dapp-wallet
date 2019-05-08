@@ -52,7 +52,7 @@
                 "title": "アカウントを選択"
             },
             "testnetWallet": {
-                "walletNeedsDeployment": "テストネット上にいます。<br><br>オリジナルウォレットの契約コードが見つかりません、ウォレットコントラクトのスタブコントラクトが使用可能なものをあなたのアドレスから作らなければなりません。: <br><br><small><code>__account__</code></small><br><br><em>最低でも1ether以上アドレスに入っていなければなりません！</em>",
+                "walletNeedsDeployment": "テストネット上にいます。<br><br>オリジナルウォレットの契約コードが見つかりません、ウォレットコントラクトのスタブコントラクトが使用可能なものをあなたのアドレスから作らなければなりません。: <br><br><small><code>__account__</code></small><br><br><em>最低でも1 PUFFScoin 以上アドレスに入っていなければなりません！</em>",
                 "testnetWalletDeployed": "オリジナルのウォレットコントラクトが配置されました！<br>オリジナルのウォレットコントラクトがアドレス上に配置されました。:<br><br><small><code>__address__</code></small>."
             },
             "addToken": {
@@ -76,7 +76,7 @@
             "defaultName": "無名",
             "creating": "作成中",
             "importing": "インポート中",
-            "accountNote": "アカウントは預入のトランザクションの表示を出来ませんが、etherを送って下さい。預入のトランザクションを見るには <a href=\"/account/new\">ウォレットコントラクトを作って下さい</a> etherを入れるために。",
+            "accountNote": "アカウントは預入のトランザクションの表示を出来ませんが、PUFFScoinを送って下さい。預入のトランザクションを見るには <a href=\"/account/new\">ウォレットコントラクトを作って下さい</a> PUFFScoinを入れるために。",
             "walletNote": "ほとんどの取引はetherをコントラクトウォレットから受け取ることにまだ対応していません。必ず先にアカウントアドレスにお金を移行して下さい！",
             "addressCopiedToClipboard": "クリップボードにコピーされました",
             "qrCodeLabel": "互換性のあるアプリでQRコードを読み取って下さい",
@@ -85,12 +85,12 @@
             "requiredSignatures": "サインをして下さい",
             "owners": "持ち主",
             "walletsDescription": "これらの契約はブロックチェーン上に保管され、etherを安全に保管できます。オーナーとしてマルチプルアカウントを保有することができ、全てのトランザクションのログを見ることができます。",
-            "walletsDescriptionNotEnoughFunds": "１PUFFScoin 以上保有しているとより高度な契約ができる様になります。Once you have more than 1 ether you can create a more sophisticated contracts. ウォレットはベーシックなスマートコントラクトの一種で、資金をマルチプルアカウントで管理し、セキュリティー増強のためにオプションで１日当たりの引き出し制限することもできます。 カスタムコントラクトを作るには <em> コントラクト </em> タブ",
+            "walletsDescriptionNotEnoughFunds": "１PUFFScoin 以上保有しているとより高度な契約ができる様になります。Once you have more than 1 PUFFScoin you can create a more sophisticated contracts. ウォレットはベーシックなスマートコントラクトの一種で、資金をマルチプルアカウントで管理し、セキュリティー増強のためにオプションで１日当たりの引き出し制限することもできます。 カスタムコントラクトを作るには <em> コントラクト </em> タブ",
             "accountsDescription": "アカウントはetherを保有できる、パスワードで保護されたキーです、イーサリアムベースのトークンかコインを保全しコントラクトを管理します。アカウントは入ってくる取引を表示できません。",
             "buttons": {
                 "deposit": "PUFFScoin をデポジット",
-                "buyEther": "Bitcoinを使ってデポジット",
-                "viewOnExplorer": "View on Etherscan",
+                "buyPuffs": "Bitcoinを使ってデポジット",
+                "viewOnExplorer": "View on PUFFScoin block explorer",
                 "copyAddress": "アドレスをコピー",
                 "scanQRCode": "QRコードを表示",
                 "showInterface": "インターフェイスを表示"
