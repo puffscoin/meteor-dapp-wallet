@@ -23,14 +23,14 @@
             "texts": {
                 "note": "Nota",
                 "balance": "Saldo",
-                "connectionErrorMist": "No se pudo conectar. Por favor, inicie geth con:<br><br><small><code>__node__</code><br><br>Asegúrese de establecer la ruta de IPC a la por defecto, cuando usa un <code>datadir</code> distinto, por ej.<br><code>geth --datadir ... --ipcpath /Users/&lt;suUsuario&gt;/Library/Ethereum/geth.ipc</code><br>o<br><code>geth --datadir ... --ipcpath /Users/&lt;suUsuario&gt;/.ethereum/geth.ipc</code>. <br><br>Opcionalmente: <code>--unlock &lt;suCuenta&gt;.</code></small>",
-                "connectionErrorBrowser": "No se pudo conectar. Por favor inicie geth con las siguientes opciones:<br><br><small><code>__node__</code><br><br>Opcionalmente agregue: <code>--unlock &lt;suCuenta&gt;.</code></small>",
+                "connectionErrorMist": "No se pudo conectar. Por favor, inicie gpuffs con:<br><br><small><code>__node__</code><br><br>Asegúrese de establecer la ruta de IPC a la por defecto, cuando usa un <code>datadir</code> distinto, por ej.<br><code>gpuffs --datadir ... --ipcpath /Users/&lt;suUsuario&gt;/Library/Puffscoin/gpuffs.ipc</code><br>o<br><code>gpuffs --datadir ... --ipcpath /Users/&lt;suUsuario&gt;/.puffscoin/gpuffs.ipc</code>. <br><br>Opcionalmente: <code>--unlock &lt;suCuenta&gt;.</code></small>",
+                "connectionErrorBrowser": "No se pudo conectar. Por favor inicie gpuffs con las siguientes opciones:<br><br><small><code>__node__</code><br><br>Opcionalmente agregue: <code>--unlock &lt;suCuenta&gt;.</code></small>",
                 "pendingConfirmationsBadge": "Confirmación Pendiente!",
                 "nodeSyncing": "__blockDiff__ blocks left",
                 "blockReceived": "New Block Received",
                 "timeSinceBlock": "since last block",
                 "peers": "peers",
-                "testnetExplain": "You are on a testnet, DO NOT SEND any real ether to these addresses",
+                "testnetExplain": "You are on a testnet, DO NOT SEND any real PUFFScoins to these addresses",
                 "noAccounts": {
                     "title": "You have no accounts yet",
                     "text": "You need to create at least one account with a strong password."
