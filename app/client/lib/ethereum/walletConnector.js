@@ -101,7 +101,7 @@ connectToNode = function() {
   //     // Go through all accounts and re-run
   //     _.each(Wallets.find({}).fetch(), function(wallet){
   //         // REMOVE ADDRESS for YOUNG ACCOUNTS, so that it tries to get the Created event and correct address again
-  //         if(wallet.creationBlock + ethereumConfig.requiredConfirmations >= block.number)
+  //         if(wallet.creationBlock + puffscoinConfig.requiredConfirmations >= block.number)
   //             delete wallet.address;
 
   //         setupContractSubscription(wallet);
