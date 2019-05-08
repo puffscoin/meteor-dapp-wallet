@@ -91,8 +91,8 @@
             "accountsDescription": "계정은 암호로 보호된 키인데 이더, 이더리움을 기반으로 한 토큰 또는 코인들을 보관하고 컨트랙트를 통제합니다. 계정은 개별 입금 트랙잭션은 보여주지 못합니다.",
             "buttons": {
                 "deposit": "이더 입금",
-                "buyEther": "비트코인을 사용한 입금",
-                "viewOnExplorer": "View on Etherscan",
+                "buyPuffs": "비트코인을 사용한 입금",
+                "viewOnExplorer": "View on PUFFScoin block explorer",
                 "copyAddress": "주소 복사",
                 "scanQRCode": "QR 코드 보기",
                 "showInterface": "인터페이스 보기"
