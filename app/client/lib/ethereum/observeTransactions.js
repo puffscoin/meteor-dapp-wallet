@@ -362,7 +362,7 @@ observeTransactions = function() {
           }
 
           if (
-            confirmations < ethereumConfig.requiredConfirmations &&
+            confirmations < puffscoinConfig.requiredConfirmations &&
             confirmations >= 0
           ) {
             Helpers.eventLogs(
@@ -406,8 +406,8 @@ observeTransactions = function() {
           }
 
           if (
-            confirmations > ethereumConfig.requiredConfirmations ||
-            confCount > ethereumConfig.requiredConfirmations * 2
+            confirmations > puffscoinConfig.requiredConfirmations ||
+            confCount > puffscoinConfig.requiredConfirmations * 2
           ) {
             // confirm after a last check
             web3.eth.getTransaction(tx.transactionHash, function(
