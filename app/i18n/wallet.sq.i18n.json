@@ -205,7 +205,7 @@
                     "description": "Kontratë e kontrolluar nga disa llogari",
                     "text1": "Kjo është llogari kyçe e kontrolluar nga",
                     "text2": "pronarë. Ju mund të dërgoni deri në",
-                    "text3": "Ether në ditë.",
+                    "text3": "PUFFScoin në ditë.",
                     "text4": "Çdo transaksion mbi limitin ditor kërkon konfirmimin e",
                     "text5": "pronarëve.",
                     "accountOwnersTitle": "Pronarët e llogarisë",
@@ -261,7 +261,7 @@
             "texts": {
                 "ownerPaysGas": "Karburanti paguhet nga pronari i kontratës së kuletës",
                 "sendAmount": "Ju doni të dërgoni <strong>__amount__</strong>.",
-                "sendAmountEquivalent": "Ju doni të dërgoni <strong>__amount__</strong> në Ether, duke përdorur norma këmbimi nga <a href=\"https://www.cryptocompare.com/coins/eth/overview/BTC\" target=\"_blank\">Cryptocompare.com</a>.<br>Që tani është ekuivalente me <strong>__etherAmount__</strong>.",
+                "sendAmountEquivalent": "Ju doni të dërgoni <strong>__amount__</strong> në PUFFScoin, duke përdorur norma këmbimi nga <a href=\"https://www.cryptocompare.com/coins/puffs/overview/BTC\" target=\"_blank\">Cryptocompare.com</a>.<br>Që tani është ekuivalente me <strong>__puffsAmount__</strong>.",
                 "sendToken": "Ju doni të dërgoni <strong>__amount__ __symbol__</strong> <strong> __name__</strong>.",
                 "overDailyLimit": "<p class=\"over-daily\">Kjo sasi është mbi limitin e mbetur ditor prej __limit__ (nga __total__ në ditë), pra ju duhet __count__ adresë tjetër për ta konfirmuar.</p>",
                 "overDailyLimit_plural": "<p class=\"over-daily\">Kjo sasi është mbi limitin e mbetur ditor prej __limit__ (nga __total__ në ditë), pra ju duhet __count__ adresa të tjera për ta konfirmuar.</p>",
@@ -270,7 +270,7 @@
                 "noCodeInRecipient": "Llogaria marrëse nuk është kontratë, pra ju nuk mund të ekzekutoni asgjë. <strong> Vendosni një adresë kontrate në fushën \"DREJT\". </strong>",
                 "addData": "Mund të shtoni të dhëna të tjera shtesë për t'u dërguar me gjithë transaksionin. Nëse nuk e dini çfarë është, atëherë <strong>mos e prekni ose mund të ketë probleme</strong>.",
                 "dataNotExecutable": "Të dhënat duket se nuk janë të ekzekutueshme, pra ky transaksion do të përdorë të gjithë karburantin që i mundësoni.",
-                "cantEstimateGas": "Konsumi juaj i karburantit nuk mund të llogaritet saktësisht, sepse ju duhet të paktën 1 Ether në llogari.",
+                "cantEstimateGas": "Konsumi juaj i karburantit nuk mund të llogaritet saktësisht, sepse ju duhet të paktën 1 PUFFScoin në llogari.",
                 "estimatedGas": "Karburanti i nevojshëm i përafruar",
                 "timeTexts": {
                     "0": "brenda pak minutave ose më gjatë",
