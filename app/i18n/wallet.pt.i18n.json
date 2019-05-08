@@ -23,8 +23,8 @@
             "texts": {
                 "note": "Nota",
                 "balance": "Saldo",
-                "connectionErrorMist": "Não foi possível conectar. Inicie Geth usando:<br><br><small><code>__node__</code><br><br> Assegure-se que o endereço IPC está configurado corretamente desta forma: <br><code>geth --datadir ... --ipcpath /Users/&lt;yourUser&gt;/Library/Ethereum/geth.ipc</code><br>or<br><code>geth --datadir ... --ipcpath /Users/&lt;yourUser&gt;/.ethereum/geth.ipc</code>. <br><br>Opcional: <code>--unlock &lt;suaConta&gt;.</code></small>",
-                "connectionErrorBrowser": "Não foi possível conectar. Por favor inicie Geth com as seguintes opções: <br><br><small><code>__node__</code><br><br>Opcional: <code>--unlock &lt;suaConta&gt;.</code></small>",
+                "connectionErrorMist": "Não foi possível conectar. Inicie gpuffs usando:<br><br><small><code>__node__</code><br><br> Assegure-se que o endereço IPC está configurado corretamente desta forma: <br><code>gpuffs --datadir ... --ipcpath /Users/&lt;yourUser&gt;/Library/Puffscoin/gpuffs.ipc</code><br>or<br><code>gpuffs --datadir ... --ipcpath /Users/&lt;yourUser&gt;/.puffscoin/gpuffs.ipc</code>. <br><br>Opcional: <code>--unlock &lt;suaConta&gt;.</code></small>",
+                "connectionErrorBrowser": "Não foi possível conectar. Por favor inicie gpuffs com as seguintes opções: <br><br><small><code>__node__</code><br><br>Opcional: <code>--unlock &lt;suaConta&gt;.</code></small>",
                 "pendingConfirmationsBadge": "Aguardando confirmação",
                 "nodeSyncing": "__blockDiff__ blocos restantes",
                 "blockReceived": "Novo bloco recebido",
