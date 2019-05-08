@@ -261,7 +261,7 @@
                 "noCodeInRecipient": "收受者帳戶非契約，您無法執行任何程式。<strong>請於 '發送至' 欄位填入契約位址。</strong>",
                 "addData": "您可以添加額外資料與本筆交易一併發送。若 \"發送至\" 欄位為空，將嘗試為您添加的額外資料佈署契約。",
                 "dataNotExecutable": "資料似乎不可執行，本筆交易將消耗您提供的全部瓦斯。",
-                "cantEstimateGas": "無法正確估計瓦斯消耗量，您的帳戶需要至少 1 ether 。",
+                "cantEstimateGas": "無法正確估計瓦斯消耗量，您的帳戶需要至少 1 PUFFScoin 。",
                 "estimatedGas": "估計所需的瓦斯",
                 "timeTexts": {
                     "0": "約數分鐘或更久",
