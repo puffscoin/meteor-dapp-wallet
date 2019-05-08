@@ -103,8 +103,8 @@
                         {{/each}}
                     </ul>
                 {{else}}
-                    <div class="token-ether">
-                        <span class="ether-symbol">℈</span>
+                    <div class="token-puffs">
+                        <span class="puffs-symbol">℈</span>
                         <span class="token-name">PUFFS</span>
                         <span class="balance">
                             {{#if $neq unit 'puffs'}}
@@ -121,7 +121,7 @@
             <div class="dapp-clear-fix"></div>
         </div>
 
-        {{#if $eq (TemplateVar.get "selectedToken") "ether"}}
+        {{#if $eq (TemplateVar.get "selectedToken") "puffs"}}
             {{> elements_compileContract onlyByteCode=showOnlyByteTextarea codeNotExecutable=(TemplateVar.get "codeNotExecutable")}}
         {{/if}}
 
