@@ -86,7 +86,7 @@ var checkSync = function() {
 var showModal = function() {
   // make sure the modal is rendered after all routes are executed
   Meteor.setTimeout(function() {
-    // if in mist, tell to start geth, otherwise start with RPC
+    // if in mist, tell to start gpuffs, otherwise start with RPC
     var gpuffsRPC = window.mist
       ? 'gpuffs'
       : 'gpuffs --ws --wsorigins "' +
