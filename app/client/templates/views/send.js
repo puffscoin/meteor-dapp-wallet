@@ -33,7 +33,7 @@ var checkOverDailyLimit = function(address, wei, template) {
     account &&
     account.requiredSignatures > 1 &&
     !_.isUndefined(account.dailyLimit) &&
-    account.dailyLimit !== ethereumConfig.dailyLimitDefault &&
+    account.dailyLimit !== puffscoinConfig.dailyLimitDefault &&
     Number(wei) !== 0
   ) {
     // check whats left
@@ -77,7 +77,7 @@ var getDataField = function() {
   // send tokens
   var selectedToken = TemplateVar.get('selectedToken');
 
-  if (selectedToken && selectedToken !== 'ether') {
+  if (selectedToken && selectedToken !== 'puffs') {
     var mainRecipient = TemplateVar.getFrom(
       'div.dapp-address-input input.to',
       'value'
@@ -152,12 +152,12 @@ Template['views_send'].onCreated(function() {
   // Deploy contract
   if (FlowRouter.getRouteName() === 'deployContract') {
     TemplateVar.set('selectedAction', 'deploy-contract');
-    TemplateVar.set('selectedToken', 'ether');
+    TemplateVar.set('selectedToken', 'puffs');
 
     // Send funds
   } else {
     TemplateVar.set('selectedAction', 'send-funds');
-    TemplateVar.set('selectedToken', FlowRouter.getParam('token') || 'ether');
+    TemplateVar.set('selectedToken', FlowRouter.getParam('token') || 'puffs');
   }
 
   // check if we are still on the correct chain
@@ -184,7 +184,7 @@ Template['views_send'].onCreated(function() {
   template.autorun(function(c) {
     var unit = EthTools.getUnit();
 
-    if (!c.firstRun && TemplateVar.get('selectedToken') === 'ether') {
+    if (!c.firstRun && TemplateVar.get('selectedToken') === 'puffs') {
       TemplateVar.set(
         'amount',
         EthTools.toWei(
@@ -235,7 +235,7 @@ Template['views_send'].onRendered(function() {
     }
 
     if (selectedAddress !== address) {
-      TemplateVar.set('selectedToken', 'ether');
+      TemplateVar.set('selectedToken', 'puffs');
     }
 
     selectedAddress = address;
@@ -256,7 +256,7 @@ Template['views_send'].onRendered(function() {
     //     address = address.toLowerCase();
 
     // Ether tx estimation
-    if (tokenAddress === 'ether') {
+    if (tokenAddress === 'puffs') {
       if (EthAccounts.findOne({ address: address }, { reactive: false })) {
         web3.eth.estimateGas(
           {
@@ -368,18 +368,18 @@ Template['views_send'].helpers({
 
     @method (total)
     */
-  total: function(ether) {
+  total: function(puffs) {
     var selectedAccount = Helpers.getAccountByAddress(
       TemplateVar.getFrom('.dapp-select-account.send-from', 'value')
     );
     var amount = TemplateVar.get('amount');
     if (!_.isFinite(amount)) return '0';
 
-    // ether
+    // puffs
     var gasInWei =
       TemplateVar.getFrom('.dapp-select-gas-price', 'gasInWei') || '0';
 
-    if (TemplateVar.get('selectedToken') === 'ether') {
+    if (TemplateVar.get('selectedToken') === 'puffs') {
       amount =
         selectedAccount && selectedAccount.owners
           ? amount
@@ -413,7 +413,7 @@ Template['views_send'].helpers({
     );
     var amount = 0;
 
-    if (TemplateVar.get('selectedToken') === 'ether') {
+    if (TemplateVar.get('selectedToken') === 'puffs') {
       var gasInWei =
         TemplateVar.getFrom('.dapp-select-gas-price', 'gasInWei') || '0';
 
@@ -543,10 +543,10 @@ Template['views_send'].events({
   /**
     Select a token
 
-    @event click .token-ether
+    @event click .token-puffs
     */
-  'click .token-ether': function(e, template) {
-    TemplateVar.set('selectedToken', 'ether');
+  'click .token-puffs': function(e, template) {
+    TemplateVar.set('selectedToken', 'puffs');
 
     // trigger amount box change
     template.$('input[name="amount"]').trigger('change');
@@ -575,8 +575,8 @@ Template['views_send'].events({
     e,
     template
   ) {
-    // ether
-    if (TemplateVar.get('selectedToken') === 'ether') {
+    // puffs
+    if (TemplateVar.get('selectedToken') === 'puffs') {
       var wei = EthTools.toWei(e.currentTarget.value.replace(',', '.'));
 
       TemplateVar.set('amount', wei || '0');
@@ -624,7 +624,7 @@ Template['views_send'].events({
         estimatedGas = 22000;
 
       // if its a wallet contract and tokens, don't need to remove the gas addition on send-all, as the owner pays
-      if (sendAll && (selectedAccount.owners || tokenAddress !== 'ether'))
+      if (sendAll && (selectedAccount.owners || tokenAddress !== 'puffs'))
         sendAll = false;
 
       // if is a wallet contract, normalize addresses to lowercase
@@ -657,7 +657,7 @@ Template['views_send'].events({
           duration: 2
         });
 
-      if (tokenAddress === 'ether') {
+      if (tokenAddress === 'puffs') {
         if (
           (_.isEmpty(amount) || amount === '0' || !_.isFinite(amount)) &&
           !data
