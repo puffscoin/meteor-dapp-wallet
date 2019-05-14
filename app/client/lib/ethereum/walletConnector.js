@@ -54,10 +54,10 @@ Session.setDefault('network', false);
 var checkNetwork = function() {
   web3.eth.getBlock(0).then(function(block) {
     switch (block.hash) {
-      case '0x61bf13fe6fff833c26a0a377b9613c896b6d1ed1cb4d46dd3762c7c2cbb2a6a5':
+      case '0xb4973da140b05bfffb1cd734ed871f888e71cf563a4218f82a092fc4540f6c03':
         Session.set('network', 'main');
         break;
-      case '0x6341fd3daf94b748c72ced5a5b26028f2474f5f00d824504e4fa37a75767e177':
+      /**case '0x6341fd3daf94b748c72ced5a5b26028f2474f5f00d824504e4fa37a75767e177':
         Session.set('network', 'rinkeby');
         break;
       case '0x41941023680923e0fe4d74a34bdac8141f2540e3ae90623718e47d66d1ca4a2d':
@@ -66,6 +66,7 @@ var checkNetwork = function() {
       case '0xa3c565fc15c7478862d50ccd6561e3c06b24cc509bf388941c25ea985ce32cb9':
         Session.set('network', 'kovan');
         break;
+        */
       default:
         Session.set('network', 'private');
     }
