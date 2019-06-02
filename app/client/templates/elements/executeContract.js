@@ -22,7 +22,7 @@ Template['elements_executeContract'].onCreated(function() {
     TemplateVar.set('executionVisible', true);
 
   // check address for code
-  web3.eth.getCode(template.data.address, function(e, code) {
+  web3.puffs.getCode(template.data.address, function(e, code) {
     if (!e && code.length > 2) {
       TemplateVar.set(template, 'hasCode', true);
     }
@@ -36,7 +36,7 @@ Template['elements_executeContract'].helpers({
     @method (reactiveContext)
     */
   reactiveContext: function() {
-    var contractInstance = new web3.eth.Contract(
+    var contractInstance = new web3.puffs.Contract(
       this.jsonInterface,
       this.address
     );
@@ -137,7 +137,7 @@ Template['elements_executeContract_constant'].onCreated(function() {
   // call the contract functions when data changes and on new blocks
   this.autorun(function() {
     // make reactive to the latest block
-    EthBlocks.latest;
+    PuffsBlocks.latest;
 
     // get args for the constant function
     var args = TemplateVar.get('inputs');
@@ -247,12 +247,12 @@ Template['elements_executeContract_function'].onCreated(function() {
 
   // change the amount when the currency unit is changed
   template.autorun(function(c) {
-    var unit = EthTools.getUnit();
+    var unit = PuffsTools.getUnit();
 
     if (!c.firstRun) {
       TemplateVar.set(
         'amount',
-        EthTools.toWei(
+        PuffsTools.toWei(
           template.find('input[name="amount"]').value.replace(',', '.'),
           unit
         )
@@ -289,7 +289,7 @@ Template['elements_executeContract_function'].events({
     e,
     template
   ) {
-    var wei = EthTools.toWei(e.currentTarget.value.replace(',', '.'));
+    var wei = PuffsTools.toWei(e.currentTarget.value.replace(',', '.'));
     TemplateVar.set('amount', wei || '0');
   },
   /**
@@ -332,8 +332,8 @@ Template['elements_executeContract_function'].events({
       ),
       data = TemplateVar.get('executeData');
 
-    if (EthBlocks && EthBlocks.latest && EthBlocks.latest.gasPrice)
-      gasPrice = EthBlocks.latest.gasPrice;
+    if (PuffsBlocks && PuffsBlocks.latest && PuffsBlocks.latest.gasPrice)
+      gasPrice = PuffsBlocks.latest.gasPrice;
 
     if (selectedAccount) {
       console.log('Providing gas: ', estimatedGas, ' + 100000');
@@ -351,7 +351,7 @@ Template['elements_executeContract_function'].events({
         // CONTRACT TX
         if (contracts['ct_' + selectedAccount._id]) {
           // Load the accounts owned by user and sort by balance
-          var accounts = EthAccounts.find(
+          var accounts = PuffsAccounts.find(
             { name: { $exists: true } },
             { sort: { name: 1 } }
           ).fetch();
@@ -390,7 +390,7 @@ Template['elements_executeContract_function'].events({
 
                 FlowRouter.go('dashboard');
               } else {
-                // EthElements.Modal.hide();
+                // PuffsElements.Modal.hide();
 
                 GlobalNotification.error({
                   content: error.message,
@@ -402,7 +402,7 @@ Template['elements_executeContract_function'].events({
 
           // SIMPLE TX
         } else {
-          web3.eth.sendTransaction(
+          web3.puffs.sendTransaction(
             {
               from: selectedAccount.address,
               to: to,
@@ -434,7 +434,7 @@ Template['elements_executeContract_function'].events({
                   duration: 2
                 });
               } else {
-                // EthElements.Modal.hide();
+                // PuffsElements.Modal.hide();
 
                 GlobalNotification.error({
                   content: error.message,
