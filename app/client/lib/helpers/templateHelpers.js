@@ -54,7 +54,7 @@ Check if currency unit is a puffscoin unit
 @method (isPuffsUnit)
 **/
 Template.registerHelper('isPuffsUnit', function() {
-  var unit = EthTools.getUnit();
+  var unit = PuffsTools.getUnit();
   return !(
     unit === 'usd' ||
     unit === 'eur' ||
@@ -114,7 +114,7 @@ Return the current unit
 @method (unit)
 **/
 Template.registerHelper('unit', function() {
-  return EthTools.getUnit();
+  return PuffsTools.getUnit();
 });
 
 /**
@@ -123,7 +123,7 @@ Return the latest block
 @method (latestBlock)
 **/
 Template.registerHelper('latestBlock', function() {
-  return EthBlocks.latest;
+  return PuffsBlocks.latest;
 });
 
 /**
@@ -132,7 +132,7 @@ Returns a list of accounts and wallets sorted by balance
 @method (latestBlock)
 **/
 Template.registerHelper('selectAccounts', function(hideWallets) {
-  var accounts = EthAccounts.find(
+  var accounts = PuffsAccounts.find(
     { balance: { $ne: '0' } },
     { sort: { balance: 1 } }
   ).fetch();
