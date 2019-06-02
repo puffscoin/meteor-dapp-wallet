@@ -39,7 +39,7 @@ mrt:qrcodesvg
 sacha:spin
 frozeman:global-notifications
 agnito:simptip
-ethereum:dapp-styles
+puffscoin:dapp-styles
 jrudio:bluebird
 tap:i18n-bundler
 numeral:numeral
@@ -47,9 +47,9 @@ numeral:languages
 hashanp:geopattern
 shell-server
 dynamic-import
-ethereum:blocks@1.1.0
-ethereum:accounts@1.1.0
-ethereum:tools@1.1.0
-ethereum:elements@1.1.0
-ethereum:web3@1.0.0-beta.33
+puffscoin:blocks@1.1.0
+puffscoin:accounts@1.1.0
+puffscoin:tools@1.1.0
+puffscoin:elements@1.1.0
+puffscoin:web3@1.0.0-beta.33
 3stack:bignumber
