@@ -24,9 +24,6 @@ Helpers.getDefaultContractExample = function(withoutPragma) {
     return source;
   } else {
     var solcVersion;
-
-    // Keep this for now as the Mist-API object will only be availabe from Mist version >= 0.8.9
-    // so that older versions that will query code from wallet.ethereum.org won't use broken example code.
     if (typeof mist !== 'undefined' && mist.solidity && mist.solidity.version) {
       solcVersion = mist.solidity.version;
     } else {
@@ -70,7 +67,7 @@ Return an account you own, from a list of accounts
 **/
 Helpers.getOwnedAccountFrom = function(accountList) {
   // Load the accounts owned by user and sort by balance
-  var accounts = EthAccounts.find({}, { sort: { balance: 1 } }).fetch();
+  var accounts = PuffsAccounts.find({}, { sort: { balance: 1 } }).fetch();
   accounts.sort(Helpers.sortByBalance);
 
   // Looks for them among the wallet account owner
@@ -124,7 +121,7 @@ Helpers.formatNumberByDecimals = function(number, decimals) {
     numberFormat += '0';
   }
 
-  return EthTools.formatNumber(
+  return PuffsTools.formatNumber(
     new BigNumber(number, 10).dividedBy(Math.pow(10, decimals)),
     numberFormat
   );
@@ -149,7 +146,7 @@ Helpers.checkChain = function(callback) {
   // TODO deactivated for now!!! because we are using full contracts
   return callback(null);
 
-  web3.eth.getCode(originalContractAddress, function(e, code) {
+  web3.puffs.getCode(originalContractAddress, function(e, code) {
     if (code && code.length <= 2) {
       if (_.isFunction(callback)) callback('Wrong chain!');
     } else if (_.isFunction(callback)) callback(null);
@@ -165,7 +162,7 @@ Check if the given wallet is a watch only wallet, by checking if we are one of o
 Helpers.isWatchOnly = function(id) {
   return !Wallets.findOne({
     _id: id,
-    owners: { $in: _.pluck(EthAccounts.find({}).fetch(), 'address') }
+    owners: { $in: _.pluck(PuffsAccounts.find({}).fetch(), 'address') }
   });
 };
 
@@ -196,7 +193,7 @@ var multipleCaseAddresses = function(address) {
 };
 
 /**
-Gets the docuement matching the given addess from the EthAccounts or Wallets collection.
+Gets the docuement matching the given addess from the PuffsAccounts or Wallets collection.
 
 @method getAccountByAddress
 @param {String} address
@@ -222,14 +219,14 @@ Helpers.getAccountByAddress = function(address, reactive) {
   }
 
   return (
-    EthAccounts.findOne(query, options) ||
+    PuffsAccounts.findOne(query, options) ||
     Wallets.findOne(query, options) ||
     CustomContracts.findOne(query, options)
   );
 };
 
 /**
-Gets the docuement matching the given query from the EthAccounts or Wallets collection.
+Gets the docuement matching the given query from the PuffsAccounts or Wallets collection.
 
 @method getAccounts
 @param {String} query
@@ -241,13 +238,13 @@ Helpers.getAccounts = function(query, reactive) {
     query.address = { $in: multipleCaseAddresses(query.address) };
   }
 
-  return EthAccounts.find(query, options)
+  return PuffsAccounts.find(query, options)
     .fetch()
     .concat(Wallets.find(query, options).fetch());
 };
 
 /**
-Gets the docuement matching the given addess from the EthAccounts or Wallets collection and returns its name or address.
+Gets the docuement matching the given addess from the PuffsAccounts or Wallets collection and returns its name or address.
 
 @method getAccountNameByAddress
 @param {String} name or address
@@ -320,7 +317,7 @@ Helpers.formatTransactionBalance = function(value, exchangeRates, unit) {
   // make sure not existing values are not Spacebars.kw
   if (unit instanceof Spacebars.kw) unit = null;
 
-  var unit = unit || EthTools.getUnit(),
+  var unit = unit || PuffsTools.getUnit(),
     format = '0,0.00';
 
   if (
@@ -334,9 +331,9 @@ Helpers.formatTransactionBalance = function(value, exchangeRates, unit) {
     var price = new BigNumber(String(web3.fromWei(value, 'puffs')), 10).times(
       exchangeRates[unit].price
     );
-    return EthTools.formatNumber(price, format) + ' ' + unit.toUpperCase();
+    return PuffsTools.formatNumber(price, format) + ' ' + unit.toUpperCase();
   } else {
-    return EthTools.formatBalance(value, format + '[0000000000000000] UNIT');
+    return PuffsTools.formatBalance(value, format + '[0000000000000000] UNIT');
   }
 };
 
@@ -790,8 +787,8 @@ Helpers.getENSName = function(address, callback) {
   var node = namehash(
     address.toLowerCase().replace('0x', '') + '.addr.reverse'
   );
-  var ensContract = new web3.eth.Contract(ensContractAbi, ensAddress);
-  var resolverContract = new web3.eth.Contract(resolverContractAbi);
+  var ensContract = new web3.puffs.Contract(ensContractAbi, ensAddress);
+  var resolverContract = new web3.puffs.Contract(resolverContractAbi);
 
   // get a resolver address for that name
   ensContract.methods.resolver(node).call(function(err, resolverAddress) {
