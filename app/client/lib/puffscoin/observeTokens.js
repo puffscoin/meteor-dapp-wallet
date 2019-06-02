@@ -55,13 +55,13 @@ var setupContractSubscription = function(newDocument) {
   events.push(subscription);
 
   // get past logs, to set the new blockNumber
-  var currentBlock = EthBlocks.latest.number;
+  var currentBlock = PuffsBlocks.latest.number;
 
   // For some reason, sometimes this contractInstance doesn't
   // have a getPastEvents property so we'll reinit the contract
   var thisContractInstance = contractInstance;
   if (!thisContractInstance.getPastEvents) {
-    thisContractInstance = new web3.eth.Contract(
+    thisContractInstance = new web3.puffs.Contract(
       contractInstance.options.jsonInterface,
       contractInstance.options.address
     );
@@ -78,7 +78,7 @@ var setupContractSubscription = function(newDocument) {
           {
             $set: {
               checkpointBlock:
-                (currentBlock || EthBlocks.latest.number) -
+                (currentBlock || PuffsBlocks.latest.number) -
                 puffscoinConfig.rollBackBy
             }
           }
@@ -90,7 +90,7 @@ var setupContractSubscription = function(newDocument) {
   subscription.on('data', function(log) {
     // Helpers.eventLogs(log);
 
-    if (EthBlocks.latest.number && log.blockNumber > EthBlocks.latest.number) {
+    if (PuffsBlocks.latest.number && log.blockNumber > PuffsBlocks.latest.number) {
       // update last checkpoint block
       Tokens.update(
         { _id: newDocument._id },
@@ -142,7 +142,7 @@ var setupContractSubscription = function(newDocument) {
           },
           function() {
             // on click show tx info
-            EthElements.Modal.show(
+            PuffsElements.Modal.show(
               {
                 template: 'views_modals_transactionInfo',
                 data: {
@@ -180,7 +180,7 @@ observeTokens = function() {
         */
     added: function(newDocument) {
       // check if wallet has code
-      web3.eth.getCode(newDocument.address, function(e, code) {
+      web3.puffs.getCode(newDocument.address, function(e, code) {
         if (!e) {
           if (code && code.length > 2) {
             Tokens.update(newDocument._id, {
