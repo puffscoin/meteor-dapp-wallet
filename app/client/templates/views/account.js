@@ -10,7 +10,7 @@ Watches custom events
 @param {Object} newDocument  the account object with .jsonInterface
 */
 var addLogWatching = function(newDocument) {
-  var contractInstance = new web3.eth.Contract(
+  var contractInstance = new web3.puffs.Contract(
     newDocument.jsonInterface,
     newDocument.address
   );
@@ -44,7 +44,7 @@ var addLogWatching = function(newDocument) {
     toBlock: 'latest'
   });
   // get past logs, to set the new blockNumber
-  var currentBlock = EthBlocks.latest.number;
+  var currentBlock = PuffsBlocks.latest.number;
 
   contractInstance.getPastEvents('allEvents', function(error, logs) {
     if (!error) {
@@ -88,7 +88,7 @@ var addLogWatching = function(newDocument) {
       Events.upsert(id, log);
 
       // update events timestamp
-      web3.eth.getBlock(log.blockHash, function(err, block) {
+      web3.puffs.getBlock(log.blockHash, function(err, block) {
         if (!err) {
           Events.update(id, { $set: { timestamp: block.timestamp } });
         }
@@ -217,7 +217,7 @@ Template['views_account'].helpers({
     */
   ownedAccount: function() {
     return (
-      EthAccounts.find({ address: this.address.toLowerCase() }).count() > 0
+      PuffsAccounts.find({ address: this.address.toLowerCase() }).count() > 0
     );
   },
   /**
@@ -281,7 +281,7 @@ var accountClipboardEventHandler = function(e) {
     Session.set('tmpAllowCopy', true);
     copyAddress();
   } else {
-    EthElements.Modal.question({
+    PuffsElements.Modal.question({
       text: new Spacebars.SafeString(
         TAPi18n.__('wallet.accounts.modal.copyAddressWarning')
       ),
@@ -307,7 +307,7 @@ Template['views_account'].events({
   'click button.delete': function(e, template) {
     var data = this;
 
-    EthElements.Modal.question({
+    PuffsElements.Modal.question({
       text: new Spacebars.SafeString(
         TAPi18n.__('wallet.accounts.modal.deleteText') +
           '<br><input type="text" class="deletionConfirmation" autofocus="true">'
@@ -361,7 +361,7 @@ Template['views_account'].events({
           name: text
         }
       });
-      EthAccounts.update(this._id, {
+      PuffsAccounts.update(this._id, {
         $set: {
           name: text
         }
@@ -399,7 +399,7 @@ Template['views_account'].events({
     e.preventDefault();
 
     // Open a modal showing the QR Code
-    EthElements.Modal.show({
+    PuffsElements.Modal.show({
       template: 'views_modals_qrCode',
       data: {
         address: this.address
@@ -424,7 +424,7 @@ Template['views_account'].events({
     });
 
     // Open a modal showing the QR Code
-    EthElements.Modal.show({
+    PuffsElements.Modal.show({
       template: 'views_modals_interface',
       data: {
         jsonInterface: cleanJsonInterface
