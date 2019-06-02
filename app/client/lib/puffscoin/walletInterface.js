@@ -402,7 +402,7 @@ checkForOriginalWallet = function() {
   return;
 
   var enoughBalance = false;
-  _.each(_.pluck(EthAccounts.find({}).fetch(), 'balance'), function(bal) {
+  _.each(_.pluck(PuffsAccounts.find({}).fetch(), 'balance'), function(bal) {
     if (new BigNumber(bal, '10').gt(1000000000000000000)) enoughBalance = true;
   });
 
@@ -416,7 +416,7 @@ checkForOriginalWallet = function() {
         );
 
         if (privateNetAddress)
-          web3.eth.getCode(privateNetAddress, function(e, code) {
+          web3.puffs.getCode(privateNetAddress, function(e, code) {
             if (!e) {
               if (code.length > 2) {
                 replaceStubAddress(privateNetAddress);
@@ -468,7 +468,7 @@ checkWalletOwners = function(address) {
         P.all(
           _.map(_.range(numberOfOwners), function(i) {
             return new P(function(resolve, reject) {
-              web3.eth.getStorageAt(address, 2 + i, function(e, ownerAddress) {
+              web3.puffs.getStorageAt(address, 2 + i, function(e, ownerAddress) {
                 if (!e) {
                   ownerAddress = ownerAddress.replace(
                     '0x000000000000000000000000',
