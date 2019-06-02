@@ -63,7 +63,7 @@ var addCustomContract = function(e) {
       }
     );
 
-    // update balances from lib/ethereum/observeBlocks.js
+    // update balances from lib/puffscoin/observeBlocks.js
     updateBalances();
 
     GlobalNotification.success({
@@ -113,7 +113,7 @@ var addToken = function(e) {
       }
     });
 
-    // update balances from lib/ethereum/observeBlocks.js
+    // update balances from lib/puffscoin/observeBlocks.js
     updateBalances();
 
     GlobalNotification.success({
@@ -142,10 +142,10 @@ var autoScanGetTokens = function(template) {
     );
 
     var tokenListURL =
-      'https://raw.githubusercontent.com/MyEtherWallet/ethereum-lists/master/dist/tokens/eth/tokens-eth.json';
+      'https://raw.githubusercontent.com/puffscoin/puffscoin-lists/master/dist/tokens/puffs/tokens-puffs.json';
 
     const accounts = _.pluck(
-      EthAccounts.find()
+      PuffsAccounts.find()
         .fetch()
         .concat(CustomContracts.find().fetch())
         .concat(Wallets.find().fetch()),
@@ -199,7 +199,7 @@ var autoScanGetTokens = function(template) {
               '0x70a08231000000000000000000000000' +
               account.substring(2).replace(' ', ''); // balanceOf(address)
             try {
-              const promise = web3.eth
+              const promise = web3.puffs
                 .call({
                   to: token.address.replace(' ', ''),
                   data: callData
@@ -267,7 +267,7 @@ var autoScanGetTokens = function(template) {
                 });
               promises.push(promise);
             } catch (error) {
-              const errorString = 'Error trying to web3.eth.call: ' + error;
+              const errorString = 'Error trying to web3.puffs.call: ' + error;
               console.error(errorString);
               TemplateVar.set(template, 'autoScanStatus', errorString);
             }
@@ -337,7 +337,7 @@ Template['views_contracts'].events({
     */
   'click .add-contract': function() {
     // Open a modal
-    EthElements.Modal.question(
+    PuffsElements.Modal.question(
       {
         template: 'views_modals_addCustomContract',
         ok: addCustomContract,
@@ -357,7 +357,7 @@ Template['views_contracts'].events({
     e.preventDefault();
 
     // Open a modal
-    EthElements.Modal.question(
+    PuffsElements.Modal.question(
       {
         template: 'views_modals_addToken',
         ok: addToken,
@@ -404,7 +404,7 @@ Template['views_contracts'].events({
     e.preventDefault();
 
     // Open a modal
-    EthElements.Modal.question(
+    PuffsElements.Modal.question(
       {
         template: 'views_modals_addToken',
         data: this,
