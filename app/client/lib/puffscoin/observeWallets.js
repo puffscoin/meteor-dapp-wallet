@@ -865,7 +865,7 @@ observeWallets = function() {
           contracts['ct_' + newDocument._id] = WalletContract;
 
           // remove account, if something is searching since more than 30 blocks
-          if (newDocument.creationBlock + 50 <= EthBlocks.latest.number) {
+          if (newDocument.creationBlock + 50 <= PuffsBlocks.latest.number) {
             Wallets.remove(newDocument._id);
           } else {
             setupContractSubscription(newDocument);
