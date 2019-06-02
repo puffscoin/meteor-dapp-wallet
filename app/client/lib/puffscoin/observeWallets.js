@@ -42,7 +42,7 @@ var checkForVulnerableWallet = function(wallet) {
   )
     return;
 
-  web3.eth.getCode(wallet.address, function(err, code) {
+  web3.puffs.getCode(wallet.address, function(err, code) {
     if (!err) {
       if (code.length > 2) {
         var vulnerable = false;
@@ -75,7 +75,7 @@ var checkForVulnerableWallet = function(wallet) {
         if (vulnerableFull || vulnerableStub || vulnerableStubDynamic) {
           vulnerable = true;
 
-          EthElements.Modal.question(
+          PuffsElements.Modal.question(
             {
               text: TAPi18n.__(
                 'wallet.app.warnings.txOriginVulnerabilityPopup'
@@ -353,7 +353,7 @@ var setupContractSubscription = function(newDocument, checkFromCreationBlock) {
         ' checking for any log from block #' +
         newDocument.creationBlock
     );
-    web3.eth.subscribe(
+    web3.puffs.subscribe(
       'logs',
       {
         address: newDocument.address,
@@ -361,7 +361,7 @@ var setupContractSubscription = function(newDocument, checkFromCreationBlock) {
       },
       function(error, logs) {
         if (!error) {
-          var creationBlock = EthBlocks.latest.number;
+          var creationBlock = PuffsBlocks.latest.number;
 
           // get earliest block number of appeared log
           if (logs.length !== 0) {
@@ -396,7 +396,7 @@ var setupContractSubscription = function(newDocument, checkFromCreationBlock) {
     Helpers.eventLogs(
       'Contract address not set, checking for contract receipt'
     );
-    web3.eth.getTransactionReceipt(newDocument.transactionHash, function(
+    web3.puffs.getTransactionReceipt(newDocument.transactionHash, function(
       error,
       receipt
     ) {
@@ -414,7 +414,7 @@ var setupContractSubscription = function(newDocument, checkFromCreationBlock) {
           return;
         }
 
-        web3.eth.getCode(receipt.contractAddress, function(error, code) {
+        web3.puffs.getCode(receipt.contractAddress, function(error, code) {
           Helpers.eventLogs('Contract created on ' + receipt.contractAddress);
 
           if (!error && code.length > 2) {
@@ -490,7 +490,7 @@ var setupContractSubscription = function(newDocument, checkFromCreationBlock) {
     events.push(subscription);
 
     // get past logs, to set the new blockNumber
-    var currentBlock = EthBlocks.latest.number;
+    var currentBlock = PuffsBlocks.latest.number;
     contractInstance.getPastEvents(
       'allEvents',
       { fromBlock: blockToCheckBack },
@@ -502,7 +502,7 @@ var setupContractSubscription = function(newDocument, checkFromCreationBlock) {
             {
               $set: {
                 checkpointBlock:
-                  (currentBlock || EthBlocks.latest.number) -
+                  (currentBlock || PuffsBlocks.latest.number) -
                   puffscoinConfig.rollBackBy
               }
             }
@@ -522,8 +522,8 @@ var setupContractSubscription = function(newDocument, checkFromCreationBlock) {
       Helpers.eventLogs(log);
 
       if (
-        EthBlocks.latest.number &&
-        log.blockNumber > EthBlocks.latest.number
+        PuffsBlocks.latest.number &&
+        log.blockNumber > PuffsBlocks.latest.number
       ) {
         // update last checkpoint block
         Wallets.update(
@@ -568,7 +568,7 @@ var setupContractSubscription = function(newDocument, checkFromCreationBlock) {
             {
               to: Helpers.getAccountNameByAddress(newDocument.address),
               from: Helpers.getAccountNameByAddress(log.returnValues.from),
-              amount: EthTools.formatBalance(
+              amount: PuffsTools.formatBalance(
                 log.returnValues.value,
                 '0,0.00[000000] unit',
                 'puffs'
@@ -576,7 +576,7 @@ var setupContractSubscription = function(newDocument, checkFromCreationBlock) {
             },
             function() {
               // on click show tx info
-              EthElements.Modal.show(
+              PuffsElements.Modal.show(
                 {
                   template: 'views_modals_transactionInfo',
                   data: {
@@ -624,7 +624,7 @@ var setupContractSubscription = function(newDocument, checkFromCreationBlock) {
             {
               to: Helpers.getAccountNameByAddress(log.returnValues.to),
               from: Helpers.getAccountNameByAddress(newDocument.address),
-              amount: EthTools.formatBalance(
+              amount: PuffsTools.formatBalance(
                 log.returnValues.value,
                 '0,0.00[000000] unit',
                 'puffs'
@@ -632,7 +632,7 @@ var setupContractSubscription = function(newDocument, checkFromCreationBlock) {
             },
             function() {
               // on click show tx info
-              EthElements.Modal.show(
+              PuffsElements.Modal.show(
                 {
                   template: 'views_modals_transactionInfo',
                   data: {
@@ -658,7 +658,7 @@ var setupContractSubscription = function(newDocument, checkFromCreationBlock) {
             log.returnValues.operation
         );
 
-        web3.eth.getBlock(log.blockNumber, true, function(err, block) {
+        web3.puffs.getBlock(log.blockNumber, true, function(err, block) {
           if (!err && block) {
             var confirmationId = Helpers.makeId(
                 'pc',
@@ -675,7 +675,7 @@ var setupContractSubscription = function(newDocument, checkFromCreationBlock) {
             // PREVENT SHOWING pending confirmations, of WATCH ONLY WALLETS
             if (
               !(from = Wallets.findOne({ address: log.address })) ||
-              !EthAccounts.findOne({ address: { $in: from.owners } })
+              !PuffsAccounts.findOne({ address: { $in: from.owners } })
             )
               return;
 
@@ -706,7 +706,7 @@ var setupContractSubscription = function(newDocument, checkFromCreationBlock) {
                   ),
                   to: Helpers.getAccountNameByAddress(log.returnValues.to),
                   from: Helpers.getAccountNameByAddress(newDocument.address),
-                  amount: EthTools.formatBalance(
+                  amount: PuffsTools.formatBalance(
                     log.returnValues.value,
                     '0,0.00[000000] unit',
                     'puffs'
@@ -799,18 +799,18 @@ observeWallets = function() {
     @param {Object} oldDocument
     */
   var checkWalletConfirmations = function(newDocument, oldDocument) {
-    var confirmations = EthBlocks.latest.number - newDocument.creationBlock;
+    var confirmations = PuffsBlocks.latest.number - newDocument.creationBlock;
 
     if (
       newDocument.address &&
       (!oldDocument || (oldDocument && !oldDocument.address)) &&
       confirmations < puffscoinConfig.requiredConfirmations
     ) {
-      var subscription = web3.eth
+      var subscription = web3.puffs
         .subscribe('newBlockHeaders')
         .on('data', function(blockHeader) {
           var confirmations =
-            EthBlocks.latest.number - newDocument.creationBlock;
+            PuffsBlocks.latest.number - newDocument.creationBlock;
 
           if (
             confirmations < puffscoinConfig.requiredConfirmations &&
@@ -826,7 +826,7 @@ observeWallets = function() {
             // TODO make smarter?
 
             // Check if the code is still at the contract address, if not remove the wallet
-            web3.eth.getCode(newDocument.address, function(e, code) {
+            web3.puffs.getCode(newDocument.address, function(e, code) {
               if (!e) {
                 if (code.length > 2) {
                   updateContractData(newDocument);
@@ -964,8 +964,8 @@ observeWallets = function() {
               // add address to account
               Wallets.update(newDocument._id, {
                 $set: {
-                  creationBlock: EthBlocks.latest.number - 1,
-                  checkpointBlock: EthBlocks.latest.number - 1,
+                  creationBlock: PuffsBlocks.latest.number - 1,
+                  checkpointBlock: PuffsBlocks.latest.number - 1,
                   address: contract.options.address
                 },
                 $unset: {
@@ -980,7 +980,7 @@ observeWallets = function() {
               setupContractSubscription(newDocument);
 
               // Show backup note
-              EthElements.Modal.question(
+              PuffsElements.Modal.question(
                 {
                   template: 'views_modals_backupContractAddress',
                   data: {
@@ -1002,7 +1002,7 @@ observeWallets = function() {
         contracts['ct_' + newDocument._id] = WalletContract;
 
         // update balance on start
-        web3.eth.getBalance(newDocument.address, function(err, res) {
+        web3.puffs.getBalance(newDocument.address, function(err, res) {
           if (!err) {
             Wallets.update(newDocument._id, {
               $set: {
@@ -1013,7 +1013,7 @@ observeWallets = function() {
         });
 
         // check if wallet has code
-        web3.eth.getCode(newDocument.address, function(e, code) {
+        web3.puffs.getCode(newDocument.address, function(e, code) {
           if (!e) {
             if (code && code.length > 2) {
               Wallets.update(newDocument._id, {
@@ -1078,7 +1078,7 @@ observeWallets = function() {
       ) {
         if (
           !Wallets.findOne({ transactions: tx._id }) &&
-          !EthAccounts.findOne({ transactions: tx._id })
+          !PuffsAccounts.findOne({ transactions: tx._id })
         )
           Transactions.remove(tx._id);
       });
