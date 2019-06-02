@@ -52,7 +52,7 @@ Check and set which network we are on.
 */
 Session.setDefault('network', false);
 var checkNetwork = function() {
-  web3.eth.getBlock(0).then(function(block) {
+  web3.puffs.getBlock(0).then(function(block) {
     switch (block.hash) {
       case '0xb4973da140b05bfffb1cd734ed871f888e71cf563a4218f82a092fc4540f6c03':
         Session.set('network', 'main');
@@ -84,19 +84,19 @@ connectToNode = function() {
 
   checkNetwork();
 
-  EthAccounts.init();
-  EthBlocks.init();
+  PuffsAccounts.init();
+  PuffsBlocks.init();
 
-  EthTools.ticker.start({
+  PuffsTools.ticker.start({
     extraParams: typeof mist !== 'undefined' ? 'Mist-' + mist.version : '',
     currencies: ['BTC', 'USD', 'EUR', 'BRL', 'GBP']
   });
 
-  if (EthAccounts.find().count() > 0) {
+  if (PuffsAccounts.find().count() > 0) {
     checkForOriginalWallet();
   }
 
-  // EthBlocks.detectFork(function(oldBlock, block){
+  // PuffsBlocks.detectFork(function(oldBlock, block){
   //     console.log('FORK detected from Block #'+ oldBlock.number + ' -> #'+ block.number +', rolling back!');
 
   //     // Go through all accounts and re-run
@@ -166,7 +166,7 @@ resetWallet = function function_name(argument) {
     });
   });
 
-  web3.eth.clearSubscriptions();
+  web3.puffs.clearSubscriptions();
 
   console.log('The wallet will re-fetch log information in 6 seconds...');
 
