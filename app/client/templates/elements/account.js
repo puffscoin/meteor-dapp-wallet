@@ -33,7 +33,7 @@ Template['elements_account'].helpers({
     */
   account: function() {
     return (
-      EthAccounts.findOne(this.account) ||
+      PuffsAccounts.findOne(this.account) ||
       Wallets.findOne(this.account) ||
       CustomContracts.findOne(this.account)
     );
@@ -83,7 +83,7 @@ Template['elements_account'].helpers({
       // remove the "new" field
       var id = this._id;
       Meteor.setTimeout(function() {
-        EthAccounts.update(id, { $unset: { new: '' } });
+        PuffsAccounts.update(id, { $unset: { new: '' } });
         Wallets.update(id, { $unset: { new: '' } });
         CustomContracts.update(id, { $unset: { new: '' } });
       }, 1000);
@@ -101,9 +101,9 @@ Template['elements_account'].helpers({
     var isImported = this.imported;
     var belowReorgThreshold =
       blocksForConfirmation >=
-      EthBlocks.latest.number - (this.creationBlock - 1);
+      PuffsBlocks.latest.number - (this.creationBlock - 1);
     var blockNumberCheck =
-      EthBlocks.latest.number - (this.creationBlock - 1) >= 0;
+      PuffsBlocks.latest.number - (this.creationBlock - 1) >= 0;
 
     return noAddress || isImported || (belowReorgThreshold && blockNumberCheck);
   },
@@ -122,7 +122,7 @@ Template['elements_account'].helpers({
     if (!this.address || !this.creationBlock || this.createdIdentifier)
       return false;
 
-    var currentBlockNumber = EthBlocks.latest.number,
+    var currentBlockNumber = PuffsBlocks.latest.number,
       confirmations = currentBlockNumber - (this.creationBlock - 1);
     return blocksForConfirmation >= confirmations && confirmations >= 0
       ? {
