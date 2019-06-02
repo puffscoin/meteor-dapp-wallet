@@ -66,7 +66,7 @@ Template['views_modals_addToken'].events({
 
     var l = e.currentTarget.value.length;
     if (!tokenAddress && l > 2 && l < 6) {
-      e.currentTarget.value += '.thetoken.eth';
+      e.currentTarget.value += '.thetoken.puffs';
       e.currentTarget.setSelectionRange(l, l + 13);
     }
 
