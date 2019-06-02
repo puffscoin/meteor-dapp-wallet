@@ -70,7 +70,7 @@ Template['elements_transactions_table'].helpers({
         // search value
         if (
           pattern.test(
-            EthTools.formatBalance(item.value, '0,0.00[000000] unit')
+            PuffsTools.formatBalance(item.value, '0,0.00[000000] unit')
           )
         )
           return item;
@@ -137,12 +137,12 @@ Template['elements_transactions_row'].helpers({
     */
   incomingTx: function(account) {
     var account =
-      EthAccounts.findOne({ _id: account }) ||
+      PuffsAccounts.findOne({ _id: account }) ||
       Wallets.findOne({ _id: account });
     return !!(
       (account && this.from !== account.address) ||
       (!account &&
-        (EthAccounts.findOne({ address: this.to }) ||
+        (PuffsAccounts.findOne({ address: this.to }) ||
           Wallets.findOne({ address: this.to })))
     );
   },
@@ -217,13 +217,13 @@ Template['elements_transactions_row'].helpers({
     @method (unConfirmed)
     */
   unConfirmed: function() {
-    if (!this.blockNumber || !EthBlocks.latest.number)
+    if (!this.blockNumber || !PuffsBlocks.latest.number)
       return {
         confirmations: 0,
         percent: 0
       };
 
-    var currentBlockNumber = EthBlocks.latest.number + 1,
+    var currentBlockNumber = PuffsBlocks.latest.number + 1,
       confirmations = currentBlockNumber - this.blockNumber;
     return blocksForConfirmation >= confirmations && confirmations >= 0
       ? {
@@ -315,7 +315,7 @@ Template['elements_transactions_row'].events({
   'click tr:not(.pending)': function(e) {
     var $element = $(e.target);
     if (!$element.is('button') && !$element.is('a')) {
-      EthElements.Modal.show(
+      PuffsElements.Modal.show(
         {
           template: 'views_modals_transactionInfo',
           data: {
@@ -367,7 +367,7 @@ Template['elements_transactions_row'].events({
         };
 
         if ((wallet = Wallets.findOne({ address: owner }))) {
-          // EthElements.Modal.question({
+          // PuffsElements.Modal.question({
           //     text: 'Wallets can not currently confirm multisig transactions',
           //     ok: true
           // });
@@ -395,7 +395,7 @@ Template['elements_transactions_row'].events({
       else if (ownerAccounts.length > 1) {
         // if multiple ask, which one to use
         // show modal
-        EthElements.Modal.question({
+        PuffsElements.Modal.question({
           template: 'views_modals_selectAccount',
           data: {
             accounts:
