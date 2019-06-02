@@ -6,7 +6,7 @@ Update the peercount
 @method getPeerCount
 */
 var getPeerCount = function() {
-  web3.eth.net.getPeerCount().then(function(peerCount) {
+  web3.puffs.net.getPeerCount().then(function(peerCount) {
     Session.set('peerCount', peerCount);
   });
 };
@@ -22,14 +22,14 @@ updateBalances = function() {
     .fetch()
     .concat(CustomContracts.find().fetch());
 
-  var allAccounts = EthAccounts.find()
+  var allAccounts = OuffsAccounts.find()
     .fetch()
     .concat(walletsAndContracts);
 
   // go through all existing accounts, for each token
   _.each(walletsAndContracts, function(account) {
     if (account.address) {
-      web3.eth.getBalance(account.address, function(err, res) {
+      web3.puffs.getBalance(account.address, function(err, res) {
         if (!err) {
           // is of type wallet
           if (account.creationBlock) {
@@ -66,7 +66,7 @@ updateBalances = function() {
 
   _.each(creatingWallets, function(wallet) {
     // Fetches transactionReceipt looking for contractAddress
-    web3.eth
+    web3.puffs
       .getTransactionReceipt(wallet.transactionHash)
       .then(function(receipt) {
         if (receipt.contractAddress !== null) {
@@ -91,7 +91,7 @@ updateBalances = function() {
     ) {
       Helpers.getENSName(account.address, function(err, name, returnedAddr) {
         if (!err && account.address.toLowerCase() == returnedAddr) {
-          EthAccounts.update(
+          PuffsAccounts.update(
             { address: account.address },
             { $set: { name: name, ens: true, ensCheck: now } }
           );
@@ -104,7 +104,7 @@ updateBalances = function() {
             { $set: { name: name, ens: true, ensCheck: now } }
           );
         } else {
-          EthAccounts.update(
+          PuffsAccounts.update(
             { address: account.address },
             { $set: { ens: false, ensCheck: now } }
           );
@@ -162,7 +162,7 @@ observeLatestBlocks = function() {
   updateBalances();
 
   // GET the latest blockchain information
-  web3.eth.subscribe('newBlockHeaders', function(e, res) {
+  web3.puffs.subscribe('newBlockHeaders', function(e, res) {
     if (!e) {
       updateBalances();
     }
