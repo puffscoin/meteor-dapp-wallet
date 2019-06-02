@@ -150,13 +150,13 @@ Template['elements_events_row'].helpers({
     @method (unConfirmed)
     */
   unConfirmed: function() {
-    if (!this.blockNumber || !EthBlocks.latest.number)
+    if (!this.blockNumber || !PuffsBlocks.latest.number)
       return {
         confirmations: 0,
         percent: 0
       };
 
-    var currentBlockNumber = EthBlocks.latest.number + 1,
+    var currentBlockNumber = PuffsBlocks.latest.number + 1,
       confirmations = currentBlockNumber - this.blockNumber;
     return blocksForConfirmation >= confirmations && confirmations >= 0
       ? {
@@ -199,7 +199,7 @@ Template['elements_events_row'].events({
   'click tr:not(.pending)': function(e) {
     var $element = $(e.target);
     if (!$element.is('button') && !$element.is('a')) {
-      EthElements.Modal.show(
+      PuffsElements.Modal.show(
         {
           template: 'views_modals_eventInfo',
           data: {
