@@ -46,8 +46,8 @@ var checkOverDailyLimit = function(address, wei, template) {
         'dailyLimitText',
         new Spacebars.SafeString(
           TAPi18n.__('wallet.send.texts.overDailyLimit', {
-            limit: EthTools.formatBalance(restDailyLimit.toString(10)),
-            total: EthTools.formatBalance(account.dailyLimit),
+            limit: PuffsTools.formatBalance(restDailyLimit.toString(10)),
+            total: PuffsTools.formatBalance(account.dailyLimit),
             count: account.requiredSignatures - 1
           })
         )
@@ -57,8 +57,8 @@ var checkOverDailyLimit = function(address, wei, template) {
         'dailyLimitText',
         new Spacebars.SafeString(
           TAPi18n.__('wallet.send.texts.underDailyLimit', {
-            limit: EthTools.formatBalance(restDailyLimit.toString(10)),
-            total: EthTools.formatBalance(account.dailyLimit)
+            limit: PuffsTools.formatBalance(restDailyLimit.toString(10)),
+            total: PuffsTools.formatBalance(account.dailyLimit)
           })
         )
       );
@@ -162,7 +162,7 @@ Template['views_send'].onCreated(function() {
 
   // check if we are still on the correct chain
   Helpers.checkChain(function(error) {
-    if (error && EthAccounts.find().count() > 0) {
+    if (error && PuffsAccounts.find().count() > 0) {
       checkForOriginalWallet();
     }
   });
@@ -182,12 +182,12 @@ Template['views_send'].onCreated(function() {
 
   // change the amount when the currency unit is changed
   template.autorun(function(c) {
-    var unit = EthTools.getUnit();
+    var unit = PuffsTools.getUnit();
 
     if (!c.firstRun && TemplateVar.get('selectedToken') === 'puffs') {
       TemplateVar.set(
         'amount',
-        EthTools.toWei(
+        PuffsTools.toWei(
           template.find('input[name="amount"]').value.replace(',', '.'),
           unit
         )
@@ -257,8 +257,8 @@ Template['views_send'].onRendered(function() {
 
     // PUFFScoin tx estimation
     if (tokenAddress === 'puffs') {
-      if (EthAccounts.findOne({ address: address }, { reactive: false })) {
-        web3.eth.estimateGas(
+      if (PuffsAccounts.findOne({ address: address }, { reactive: false })) {
+        web3.puffs.estimateGas(
           {
             from: address,
             to: to,
@@ -577,7 +577,7 @@ Template['views_send'].events({
   ) {
     // puffs
     if (TemplateVar.get('selectedToken') === 'puffs') {
-      var wei = EthTools.toWei(e.currentTarget.value.replace(',', '.'));
+      var wei = PuffsTools.toWei(e.currentTarget.value.replace(',', '.'));
 
       TemplateVar.set('amount', wei || '0');
 
@@ -728,7 +728,7 @@ Template['views_send'].events({
                     error,
                     txHash
                   );
-                  // EthElements.Modal.hide();
+                  // PuffsElements.Modal.hide();
                   GlobalNotification.error({
                     content: translateExternalErrorMessage(error.message),
                     duration: 8
@@ -770,7 +770,7 @@ Template['views_send'].events({
           console.log('Gas Price: ' + gasPrice);
           console.log('Amount:', amount);
 
-          web3.eth
+          web3.puffs
             .sendTransaction(
               {
                 from: selectedAccount.address,
@@ -789,7 +789,7 @@ Template['views_send'].events({
                     error,
                     txHash
                   );
-                  // EthElements.Modal.hide();
+                  // PuffsElements.Modal.hide();
                   GlobalNotification.error({
                     content: translateExternalErrorMessage(error.message),
                     duration: 8
@@ -832,7 +832,7 @@ Template['views_send'].events({
       if (typeof mist === 'undefined') {
         console.log('estimatedGas: ' + estimatedGas);
 
-        EthElements.Modal.question(
+        PuffsElements.Modal.question(
           {
             template: 'views_modals_sendTransactionInfo',
             data: {
