@@ -14,13 +14,13 @@ The send transaction info template
 // Set basic variables
 Template['views_modals_sendTransactionInfo'].helpers({
   /**
-    Calculates the fee used for this transaction in ether
+    Calculates the fee used for this transaction in puffscoin
 
     @method (estimatedFee)
     */
   estimatedFee: function() {
     if (this.estimatedGas && this.gasPrice)
-      return EthTools.formatBalance(
+      return PuffsTools.formatBalance(
         new BigNumber(this.estimatedGas, 10).times(
           new BigNumber(this.gasPrice, 10)
         ),
