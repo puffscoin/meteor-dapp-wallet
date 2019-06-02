@@ -70,7 +70,7 @@ Template['elements_compileContract'].onCreated(function() {
     if (selectedType && selectedType === 'source-code' && selectedContract) {
       // generate new contract code
       try {
-        txData = new web3.eth.Contract(selectedContract.jsonInterface)
+        txData = new web3.puffs.Contract(selectedContract.jsonInterface)
           .deploy({
             data: selectedContract.bytecode,
             arguments: constructorInputs
@@ -134,7 +134,7 @@ Template['elements_compileContract'].onRendered(function() {
       TemplateVar.set(template, 'compileError', false);
 
       Meteor.setTimeout(function(argument) {
-        web3.eth.compile.solidity(sourceCode, function(
+        web3.puffs.compile.solidity(sourceCode, function(
           error,
           compiledContracts
         ) {
