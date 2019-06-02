@@ -20,7 +20,7 @@ observeCustomContracts = function() {
     */
     added: function(newDocument) {
       // check if wallet has code
-      web3.eth.getCode(newDocument.address, function(e, code) {
+      web3.puffs.getCode(newDocument.address, function(e, code) {
         if (!e && code && code.length > 2) {
           CustomContracts.update(newDocument._id, {
             $unset: {
@@ -32,7 +32,7 @@ observeCustomContracts = function() {
           // addLogWatching(newDocument);
         } else if (!e) {
           // if there's no code, check the contract has a balance
-          web3.eth.getBalance(newDocument.address, function(e, balance) {
+          web3.puffs.getBalance(newDocument.address, function(e, balance) {
             if (!e && web3.utils.toBN(balance).gt(0)) {
               CustomContracts.update(newDocument._id, {
                 $unset: {
@@ -58,7 +58,7 @@ observeCustomContracts = function() {
 
 // TODO: convert from filters to subscriptions
 // var addLogWatching = function(newDocument){
-//     var contractInstance = new web3.eth.Contract(newDocument.jsonInterface, newDocument.address);
+//     var contractInstance = new web3.puffs.Contract(newDocument.jsonInterface, newDocument.address);
 //     var blockToCheckBack = (newDocument.checkpointBlock || 0) - puffscoinConfig.rollBackBy;
 //     if(blockToCheckBack < 0)
 //         blockToCheckBack = 0;
@@ -70,12 +70,12 @@ observeCustomContracts = function() {
 //     });
 //     var filter = contractInstance.allEvents({fromBlock: blockToCheckBack, toBlock: 'latest'});
 //     // get past logs, to set the new blockNumber
-//     var currentBlock = EthBlocks.latest.number;
+//     var currentBlock = PuffsBlocks.latest.number;
 //     filter.get(function(error, logs) {
 //         if(!error) {
 //             // update last checkpoint block
 //             CustomContracts.update({_id: newDocument._id}, {$set: {
-//                 checkpointBlock: (currentBlock || EthBlocks.latest.number) - puffscoinConfig.rollBackBy
+//                 checkpointBlock: (currentBlock || PuffsBlocks.latest.number) - puffscoinConfig.rollBackBy
 //             }});
 //         }
 //     });
@@ -85,7 +85,7 @@ observeCustomContracts = function() {
 //             if(log.removed) {
 //                 Events.remove(id);
 //             } else {
-//                 web3.eth.getBlock(log.blockHash, function(err, block){
+//                 web3.puffs.getBlock(log.blockHash, function(err, block){
 //                     if(!err) {
 //                         _.each(log.args, function(value, key){
 //                             // if bignumber
