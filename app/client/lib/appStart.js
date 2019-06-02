@@ -36,7 +36,7 @@ Meteor.Spinner.options = {
 
 var checkSync = function() {
   // Stop app operation, when the node is syncing
-  web3.eth
+  web3.puffs
     .isSyncing()
     .then(function(syncing) {
       if (syncing === true) {
@@ -95,7 +95,7 @@ var showModal = function() {
         window.location.host +
         '"';
 
-    EthElements.Modal.question(
+    PuffsElements.Modal.question(
       {
         text: new Spacebars.SafeString(
           TAPi18n.__(
@@ -118,18 +118,18 @@ var showModal = function() {
 };
 
 var connect = function() {
-  web3.eth.net
+  web3.puffs.net
     .isListening()
     .then(function(isListening) {
       if (isListening) {
-        // only start app operation, when the node is not syncing (or the eth_syncing property doesn't exists)
-        web3.eth
+        // only start app operation, when the node is not syncing (or the puffs_syncing property doesn't exists)
+        web3.puffs
           .isSyncing()
           .then(function(syncing) {
             if (!syncing) {
               connectToNode();
             } else {
-              EthAccounts.init();
+              PuffsAccounts.init();
             }
           })
           .catch(function(error) {
