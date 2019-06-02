@@ -42,7 +42,7 @@ addTransactionAfterSend = function(
   });
 
   // add from Account
-  EthAccounts.update(
+  PuffsAccounts.update(
     { address: from },
     {
       $addToSet: {
@@ -52,7 +52,7 @@ addTransactionAfterSend = function(
   );
 
   // add to Account
-  EthAccounts.update(
+  PuffsAccounts.update(
     { address: to },
     {
       $addToSet: {
@@ -82,11 +82,11 @@ addTransaction = function(log, from, to, value) {
     value: value
   });
 
-  var block = web3.eth.getBlock(log.blockNumber, false, function(err, block) {
+  var block = web3.puffs.getBlock(log.blockNumber, false, function(err, block) {
     if (!err) {
-      web3.eth.getTransaction(log.transactionHash, function(err, transaction) {
+      web3.puffs.getTransaction(log.transactionHash, function(err, transaction) {
         if (!err && transaction) {
-          web3.eth.getTransactionReceipt(log.transactionHash, function(
+          web3.puffs.getTransactionReceipt(log.transactionHash, function(
             err,
             receipt
           ) {
@@ -159,7 +159,7 @@ var updateTransaction = function(newDocument, transaction, receipt) {
   if (receipt && transaction) {
     // check for code on the address
     if (!newDocument.contractAddress && receipt.contractAddress) {
-      web3.eth.getCode(receipt.contractAddress, function(e, code) {
+      web3.puffs.getCode(receipt.contractAddress, function(e, code) {
         if (!e && code.length > 2) {
           Transactions.update(
             { _id: id },
@@ -289,13 +289,13 @@ var updateTransaction = function(newDocument, transaction, receipt) {
       to: Helpers.getAccountNameByAddress(newDocument.to)
     });
 
-    if (EthAccounts.findOne({ address: newDocument.from })) {
-      web3.eth.getBalance(newDocument.from, newDocument.blockNumber, function(
+    if (PuffsAccounts.findOne({ address: newDocument.from })) {
+      web3.puffs.getBalance(newDocument.from, newDocument.blockNumber, function(
         e,
         now
       ) {
         if (!e) {
-          web3.eth.getBalance(
+          web3.puffs.getBalance(
             newDocument.from,
             newDocument.blockNumber - 1,
             function(e, then) {
@@ -347,8 +347,8 @@ observeTransactions = function() {
 
         if (!e) {
           var confirmations =
-            tx.blockNumber && EthBlocks.latest.number
-              ? EthBlocks.latest.number + 1 - tx.blockNumber
+            tx.blockNumber && PuffsBlocks.latest.number
+              ? PuffsBlocks.latest.number + 1 - tx.blockNumber
               : 0;
           confCount++;
 
@@ -373,11 +373,11 @@ observeTransactions = function() {
             );
 
             // Check if the tx still exists, if not disable the tx
-            web3.eth.getTransaction(tx.transactionHash, function(
+            web3.puffs.getTransaction(tx.transactionHash, function(
               e,
               transaction
             ) {
-              web3.eth.getTransactionReceipt(tx.transactionHash, function(
+              web3.puffs.getTransactionReceipt(tx.transactionHash, function(
                 e,
                 receipt
               ) {
@@ -410,11 +410,11 @@ observeTransactions = function() {
             confCount > puffscoinConfig.requiredConfirmations * 2
           ) {
             // confirm after a last check
-            web3.eth.getTransaction(tx.transactionHash, function(
+            web3.puffs.getTransaction(tx.transactionHash, function(
               e,
               transaction
             ) {
-              web3.eth.getTransactionReceipt(tx.transactionHash, function(
+              web3.puffs.getTransactionReceipt(tx.transactionHash, function(
                 e,
                 receipt
               ) {
@@ -439,7 +439,7 @@ observeTransactions = function() {
                   } else if (transaction.blockNumber) {
                     // check if parent block changed
                     // TODO remove if later tx.blockNumber can be null again
-                    web3.eth.getBlock(transaction.blockNumber, function(
+                    web3.puffs.getBlock(transaction.blockNumber, function(
                       e,
                       block
                     ) {
@@ -472,7 +472,7 @@ observeTransactions = function() {
         }
       };
 
-      var subscription = web3.eth.subscribe('newBlockHeaders', function(
+      var subscription = web3.puffs.subscribe('newBlockHeaders', function(
         error,
         result
       ) {
@@ -498,7 +498,7 @@ observeTransactions = function() {
       @method added
     */
     added: function(newDocument) {
-      var confirmations = EthBlocks.latest.number - newDocument.blockNumber;
+      var confirmations = PuffsBlocks.latest.number - newDocument.blockNumber;
 
       // add to accounts
       Wallets.update(
@@ -623,7 +623,7 @@ observeTransactions = function() {
           }
         }
       );
-      EthAccounts.update(
+      PuffsBlocks.update(
         { address: document.from },
         {
           $pull: {
@@ -631,7 +631,7 @@ observeTransactions = function() {
           }
         }
       );
-      EthAccounts.update(
+      PuffsBlocks.update(
         { address: document.to },
         {
           $pull: {
