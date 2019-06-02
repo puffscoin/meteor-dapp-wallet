@@ -159,4 +159,4 @@ var tokenInterface = [
   }
 ];
 
-TokenContract = new web3.eth.Contract(tokenInterface);
+TokenContract = new web3.puffs.Contract(tokenInterface);
